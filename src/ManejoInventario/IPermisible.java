@@ -11,10 +11,11 @@ package ManejoInventario;
  * Descripción:
  * Esta es la interface que le va a dar los distintos permisos a los distintos tipos de usuario
  */
-public class IPermisible {
+  public interface IPermisible {
 
-    public IPermisible() {
+    public String IPermisible();
     
-    }
     
+    
+
 }
