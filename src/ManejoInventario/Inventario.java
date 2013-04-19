@@ -1,7 +1,7 @@
 package ManejoInventario;
        
 
-import ManejoInventario.ProductoInv;
+import ManejoInventario.Producto;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -24,7 +24,7 @@ public class Inventario {
     private String fechaIngreso;
     private String existenciaProducto;
     private String codidoEmpleado;
-    ArrayList<ProductoInv> listaInventario= new ArrayList<>();// lo agrego para manejar todo segun existencias 
+    ArrayList<Producto> listaInventario= new ArrayList<>();// lo agrego para manejar todo segun existencias 
       
     public Inventario() {
     }
@@ -59,16 +59,16 @@ public class Inventario {
         this.codidoEmpleado = codidoEmpleado;
     }
 
-    public ArrayList<ProductoInv> getListaInventario() {
+    public ArrayList<Producto> getListaInventario() {
         return listaInventario;
     }
 
-    public void setListaInventario(ArrayList<ProductoInv> listaInventario) {
+    public void setListaInventario(ArrayList<Producto> listaInventario) {
         this.listaInventario = listaInventario;
     }
     
    //agregar los productos
-    public void AgregarListaItems(ProductoInv pi) {
+    public void AgregarListaItems(Producto pi) {
 
         listaInventario.add(pi);
     }    
@@ -78,9 +78,9 @@ public class Inventario {
     public String verProductosInventario(){
      
         String lista="";
-        Iterator<ProductoInv> pil=listaInventario.iterator();
+        Iterator<Producto> pil=listaInventario.iterator();
         while(pil.hasNext()){
-            ProductoInv iDatos=pil.next();
+            Producto iDatos=pil.next();
             lista+=iDatos.toString();
     }
         return lista;

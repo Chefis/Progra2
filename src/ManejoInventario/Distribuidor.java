@@ -24,7 +24,7 @@ public class Distribuidor {
     private Date fechaEntrega;
    
     private Categoria tipoProductos;
-    private ArrayList<ProductoInv> lDP = new ArrayList<ProductoInv>();
+    private ArrayList<Producto> lDP = new ArrayList<Producto>();
 
     public Distribuidor() {
     }
@@ -38,11 +38,11 @@ public class Distribuidor {
         this.tipoProductos = tipoProductos;
     }
 
-     public ArrayList<ProductoInv> getlDP() {
+     public ArrayList<Producto> getlDP() {
         return lDP;
     }
 
-    public void setlDP(ArrayList<ProductoInv> lDP) {
+    public void setlDP(ArrayList<Producto> lDP) {
         this.lDP = lDP;
     }
     

@@ -16,14 +16,14 @@ public class Item {
     
     
     private int numLinea;
-    private ProductoInv producto;
+    private Producto producto;
     private int cant;
     private double subtotal;
 
     public Item() {
     }
 
-    public Item(int numLinea, ProductoInv producto, int cant) {
+    public Item(int numLinea, Producto producto, int cant) {
         this.numLinea = numLinea;
         this.producto = producto;
         this.cant = cant;
@@ -34,7 +34,7 @@ public class Item {
         return numLinea;
     }
 
-    public ProductoInv getProducto() {
+    public Producto getProducto() {
         return producto;
     }
 
@@ -50,7 +50,7 @@ public class Item {
         this.numLinea = numLinea;
     }
 
-    public void setProducto(ProductoInv producto) {
+    public void setProducto(Producto producto) {
         this.producto = producto;
     }
 

@@ -11,7 +11,7 @@ package ManejoInventario;
  *  El producto, CREO, tiene que llevar Archivar, agregar, modificar, consultar
  */
 
-public class ProductoInv {
+public class Producto {
     
     private String codigo;
     private String nombre;
@@ -23,10 +23,10 @@ public class ProductoInv {
     private Distribuidor distribuidor;
     private Categoria categoria; //este se puede quitar si no existen mas de una categoria
 
-    public ProductoInv() {
+    public Producto() {
     }
 
-    public ProductoInv(String codigo, String nombre, String decripcion, Integer cantInicial, Integer cantMin, Integer canttotal, double costoUnid, Distribuidor distribuidor, Categoria categoria) {
+    public Producto(String codigo, String nombre, String decripcion, Integer cantInicial, Integer cantMin, Integer canttotal, double costoUnid, Distribuidor distribuidor, Categoria categoria) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.decripcion = decripcion;

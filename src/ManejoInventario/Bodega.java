@@ -17,7 +17,7 @@ public class Bodega {
 
     private String nombre = "";
     private String ubicacion = "";
-    private ArrayList<ProductoInv> lP = new ArrayList<ProductoInv>();
+    private ArrayList<Producto> lP = new ArrayList<Producto>();
     
     
     public Bodega() {
@@ -28,11 +28,11 @@ public class Bodega {
         this.ubicacion = ubicacion;
     }
     
-    public ArrayList<ProductoInv> getlP() {
+    public ArrayList<Producto> getlP() {
         return lP;
     }
 
-    public void setlP(ArrayList<ProductoInv> lP) {
+    public void setlP(ArrayList<Producto> lP) {
         this.lP = lP;
     }
 
@@ -52,7 +52,7 @@ public class Bodega {
         this.ubicacion = ubicacion;
     }
 
-    public void agregarProducot(ProductoInv p) {
+    public void agregarProducot(Producto p) {
         lP.add(p);
 
     }
@@ -60,7 +60,7 @@ public class Bodega {
     public String verProductos() {
         String listaP = "";
         int cont = 0;
-        Iterator<ProductoInv> it = lP.iterator();
+        Iterator<Producto> it = lP.iterator();
         while (it.hasNext()) {
             cont++;
             listaP += cont + "." + it.next().toString() + "\n";
