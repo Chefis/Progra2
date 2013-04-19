@@ -4,8 +4,10 @@ package ManejoInventario;
  * Creado por: Marcela Leandro
  * Fecha: 15/04/2013
  * -------------------------------------------------- 
- * Modificado por: 
- * Fecha: 
+ * Modificado por: Jennifer Camacho
+ * Fecha: 19/04/2013
+ * --------------------------------------------------- 
+ * Descripción: Converti en abstracto y elimine toString innecesario
  * --------------------------------------------------- 
  * Descripción:
  * Necesito modificarlo (agregar, retirar), poder consultarlo. Tiene que tener un
@@ -13,7 +15,7 @@ package ManejoInventario;
  */
 
 
-public class Cliente {
+public abstract class Cliente {
     
     private String nombre;
     private String direccion;
@@ -51,12 +53,6 @@ public class Cliente {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
-
-    
-    @Override
-    public String toString() {
-        return "Cliente{" + "nombre=" + nombre + ", direccion=" + direccion + ", telefono=" + telefono + '}';
-    }
-    
+  
     
 }

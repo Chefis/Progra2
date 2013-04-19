@@ -1,20 +1,18 @@
 package ManejoInventario;
 
-
-import ManejoInventario.Cliente;
-import ManejoInventario.Cliente;
-
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author M-01
+ * Creado por: Daniela Bolivar
+ * Fecha: 
+ * -------------------------------------------------- 
+ * Modificado por: Jennier Camacho
+ * Fecha: 19/04/2013
+ * --------------------------------------------------- 
+ * Descripción:
+ * 
  */
 public class ClienteJuridico extends Cliente{
-    private String responsableLegal="";
+    
+    private String responsableLegal;
 
     public ClienteJuridico() {
     }
@@ -32,7 +30,10 @@ public class ClienteJuridico extends Cliente{
         this.responsableLegal = responsableLegal;
     }
     
-    
+    @Override
+    public String toString(){
+        return "Nombre de la empresa: " +this.getNombre()+ "\n Responsable: " +this.getResponsableLegal()+ "\n Dirección: " +this.getDireccion()+ "\n Teléfono: " +this.getTelefono();
+    }
     
     
 }

@@ -13,5 +13,5 @@ package ManejoInventario;
  */
 public interface IDescuento {
     
-    public double implementarDescuento(double precio);
+    public double implementarDescuento();
 }

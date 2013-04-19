@@ -20,13 +20,14 @@ public class Producto {
     private Integer cantMin;
     private Integer canttotal;
     private double costoUnid;
+    private double costoVenta;
     private Distribuidor distribuidor;
     private Categoria categoria; //este se puede quitar si no existen mas de una categoria
 
     public Producto() {
     }
 
-    public Producto(String codigo, String nombre, String decripcion, Integer cantInicial, Integer cantMin, Integer canttotal, double costoUnid, Distribuidor distribuidor, Categoria categoria) {
+    public Producto(String codigo, String nombre, String decripcion, Integer cantInicial, Integer cantMin, Integer canttotal, double costoUnid, double costoVenta, Distribuidor distribuidor, Categoria categoria) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.decripcion = decripcion;
@@ -34,6 +35,7 @@ public class Producto {
         this.cantMin = cantMin;
         this.canttotal = canttotal;
         this.costoUnid = costoUnid;
+        this.costoVenta = costoVenta;
         this.distribuidor = distribuidor;
         this.categoria = categoria;
     }
@@ -94,6 +96,14 @@ public class Producto {
         this.costoUnid = costoUnid;
     }
 
+    public double getCostoVenta() {
+        return costoVenta;
+    }
+
+    public void setCostoVenta(double costoVenta) {
+        this.costoVenta = costoVenta;
+    }
+
     public Distribuidor getDistribuidor() {
         return distribuidor;
     }
@@ -123,7 +133,8 @@ public class Producto {
         cadena += "Cantidad inicial: " +this.getCantInicial()+ "\n";
         cadena += "Cantidad minima: " +this.getCantMin()+ "\n";
         cadena += "Cantidad total: " +this.getCanttotal()+ "\n";
-        cadena += "Costo unitario: " +this.getCostoUnid()+ "\n\n";
+        cadena += "Costo unitario: " +this.getCostoUnid()+ "\n";
+        cadena += "Costo de venta: " +this.getCostoVenta()+ "\n\n";
         
         cadena += "Propiedades\n";
         cadena += "Categoria: " +this.getCategoria()+ "\n";

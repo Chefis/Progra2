@@ -1,4 +1,3 @@
-
 package ManejoInventario;
 
 /*
@@ -9,10 +8,10 @@ package ManejoInventario;
  * Fecha: 
  * --------------------------------------------------- 
  * Descripción:
- * Esto se puede borrar en caso de no existir mas categorias
+ * 
  */
-public class Categoria {
-    
+public abstract class Categoria {
+
     private String nombre;
     private String descripcion;
     private boolean estado;
@@ -49,17 +48,4 @@ public class Categoria {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-
-    @Override
-    public String toString() {
-        String cadena= "";
-        
-        cadena += "Nombre: " +this.getNombre()+ "\n";
-        cadena += "Descripción: " +this.getDescripcion()+ "\n";
-        cadena += "Estado: " +this.isEstado()+ "\n";
-        
-        return cadena;
-    }
-    
-    
 }

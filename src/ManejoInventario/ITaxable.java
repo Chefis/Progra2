@@ -13,5 +13,5 @@ package ManejoInventario;
  */
 public interface ITaxable {
 
-    public double implementarImpuesto(double precio);
+    public double implementarImpuesto();
 }

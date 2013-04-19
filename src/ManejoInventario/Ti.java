@@ -1,4 +1,3 @@
-
 package ManejoInventario;
 /*
  * Creado por: Daniela Bolivar
@@ -10,15 +9,31 @@ package ManejoInventario;
  * Descripción:
  * 
  */
-public class Ti extends Categoria implements IDescuento{
-    
-    @Override
-      public double implementarDescuento(double precio){
-        
-        double descuento=0.30*precio;
-       return precio-descuento;
-        
+
+public class Ti extends Categoria implements IDescuento {
+
+    public Ti() {
     }
 
-}
+    public Ti(String nombre, String descripcion, boolean estado) {
+        super(nombre, descripcion, estado);
+    }
 
+    @Override
+    public double implementarDescuento() {
+
+        return 30.0;
+    }
+
+    @Override
+    public String toString() {
+        String cadena = "";
+
+        cadena += "Nombre: " + this.getNombre() + "\n";
+        cadena += "Descripción: " + this.getDescripcion() + "\n";
+        cadena += "Estado: " + this.isEstado() + "\n";
+        cadena += "Descuento: " + implementarDescuento() + "%";
+
+        return cadena;
+    }
+}
