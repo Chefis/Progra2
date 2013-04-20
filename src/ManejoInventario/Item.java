@@ -4,7 +4,7 @@ package ManejoInventario;
  * Creado por: Marcela Leandro
  * Fecha: 15/04/2013
  * -------------------------------------------------- 
- * Modificado por: 
+ * Modificado por: Oscar Mendoza López
  * Fecha: 
  * --------------------------------------------------- 
  * Descripción:
@@ -68,10 +68,10 @@ public class Item {
         setSubtotal(this.cant * producto.getCostoUnid());
     } 
  
-//     public void numConsecutivo(Factura orden) {
-//      
-//         setNumLinea(Factura().size()+1);
-//    }
+     public void numConsecutivo(Factura factura) {
+      
+            setNumLinea(factura.getListaItem().size()+1);
+    }
 
     @Override
     public String toString() {

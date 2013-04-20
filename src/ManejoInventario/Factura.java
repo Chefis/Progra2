@@ -2,13 +2,14 @@
 package ManejoInventario;
 
 import java.util.ArrayList;
-import sun.util.calendar.BaseCalendar.Date;
+import java.util.Date;
+import java.util.Iterator;
 
 /*
  * Creado por: Marcela Leandro
  * Fecha: 15/04/2013
  * -------------------------------------------------- 
- * Modificado por: 
+ * Modificado por: Oscar Mendoza López
  * Fecha: 
  * --------------------------------------------------- 
  * Descripción:
@@ -81,9 +82,26 @@ public class Factura {
     @Override
     public String toString() {
         
+        int anno = this.getFecha().getYear() + 1900;
+        int mes = this.getFecha().getMonth() + 1;
+        int dia = this.getFecha().getDay();
+        String fechaformato = dia + "/" + mes + "/" + anno;
+        String cadena = "";
+        double montofinal = 0.0;
         
+        cadena += getDetalle() +"\n"+ "Nombre Cliente: " + getCliente() + "\n" + 
+                                      "Fecha: " + fechaformato + "\n" + 
+                                      "Numero Orden: " +this.getNumero()+ "\n" +
+                                      "_____________________________________________________________________________________\n" +
+                                      "No.Linea\tCant.\tDescripcion\tPrecio Unitario\tImpuesto\tSubTotal\n" +
+                                      "-------------------------------------------------------------------------------------\n";
         
-        return "Factura{" + "numero=" + numero + ", fecha=" + fecha + ", Cliente=" + Cliente + ", Detalle=" + Detalle + ", listaItem=" + listaItem + '}';
+                                      
+                                      
+        
+        //"Factura{" + "numero=" + numero + ", fecha=" + fecha + ", Cliente=" + Cliente + ", Detalle=" + Detalle + ", listaItem=" + listaItem + '}'
+        
+        return cadena;
     }
 
     

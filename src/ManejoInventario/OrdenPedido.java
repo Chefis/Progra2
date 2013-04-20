@@ -11,21 +11,28 @@ import java.util.Iterator;
  * Fecha: 
  * --------------------------------------------------- 
  * Descripción:
- *  Marcela dice que es para que el cliente se responsibilice de su pago sobre lo que me pidio.
- * Mando una copia a bodega para que me aparte y de el producto que solicito
+ * Aprobar, rechazar, modificar, consultar
  */
-public class OrdenCompra {
+public class OrdenPedido {
 
-    private ArrayList<Factura> listaFOC = new ArrayList<Factura>();
-    private String aprobacion = "";
+    private ArrayList<Factura> listaFOP = new ArrayList<Factura>();
+   private String aprobacion = "";
 
-    public OrdenCompra() {
+    public OrdenPedido() {
     }
 
-    public OrdenCompra(String aprobacion) {
+    public OrdenPedido(String aprobacion) {
 
         this.aprobacion = aprobacion;
 
+    }
+
+    public ArrayList<Factura> getListaFOP() {
+        return listaFOP;
+    }
+
+    public void setListaFOP(ArrayList<Factura> listaFOP) {
+        this.listaFOP = listaFOP;
     }
 
     public String isAprobacion() {
@@ -36,42 +43,31 @@ public class OrdenCompra {
         this.aprobacion = aprobacion;
     }
 
-    public ArrayList<Factura> getListaFOC() {
-        return listaFOC;
-    }
-
-    public void setListaFOC(ArrayList<Factura> listaFOC) {
-        this.listaFOC = listaFOC;
-    }
-
     public void agregarFactura(Factura f) {
-        listaFOC.add(f);
+        listaFOP.add(f);
     }
 
     public String verFactura() {
-
-
         String listaP = "";
         int i = 0;
-        Iterator<Factura> it = listaFOC.iterator();
+        Iterator<Factura> it = listaFOP.iterator();
         while (it.hasNext()) {
             i++;
             listaP += i + "." + it.next().toString() + "\n";
         }
         return "Factura(s): \n"
                 + listaP;
-
     }
-
-    public String validacion() {
+    
+     public String validacion() {
         if (aprobacion.equalsIgnoreCase("Aprobado")) {
             return "Orden Aprobada";
         } else {
             return "Orden Rechazada";
         }
     }
-
-    @Override
+     
+      @Override
     public String toString() {
         return verFactura() + "________________________________________________________________________________________________________________"
                 + "\n\n\t\t\t\t" + validacion();
