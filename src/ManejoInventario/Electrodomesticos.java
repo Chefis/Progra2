@@ -8,7 +8,10 @@ package ManejoInventario;
  * Fecha: 19/4/2013
  * --------------------------------------------------- 
  * Descripción:
- * 
+ *  Modificado por: Oscar Mendoza
+ * Fecha: 19/04/2013
+ * --------------------------------------------------- 
+ * Descripción: Le agregue el descuento
  */
 public class Electrodomesticos extends Categoria implements ITaxable {
 
@@ -24,10 +27,17 @@ public class Electrodomesticos extends Categoria implements ITaxable {
         return 10.0;
     }
     
+<<<<<<< HEAD
     public double implementarDescuesto() {
         return 0.0;
     }
     
+=======
+    public double implementarDescuento() {
+        return 5.0;
+    }
+
+>>>>>>> f58d860c03c1adc0f34420593fe0f6bc0905ba0d
     @Override
     public String toString() {
         String cadena = "";
@@ -36,6 +46,7 @@ public class Electrodomesticos extends Categoria implements ITaxable {
         cadena += "Descripción: " + this.getDescripcion() + "\n";
         cadena += "Estado: " + this.isEstado() + "\n";
         cadena += "Impuesto: " + implementarImpuesto() + "%";
+        cadena += "Descuento: " + implementarDescuento()+ "%";
 
         return cadena;
     }

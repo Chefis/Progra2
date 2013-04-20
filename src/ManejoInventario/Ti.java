@@ -3,8 +3,8 @@ package ManejoInventario;
  * Creado por: 
  * Fecha: 
  * -------------------------------------------------- 
- * Modificado por: 
- * Fecha: 
+ * Modificado por: Oscar Mendoza
+ * Fecha: 19/04/2013
  * --------------------------------------------------- 
  * Descripción:
  * 
@@ -24,6 +24,11 @@ public class Ti extends Categoria implements IDescuento {
 
         return 30.0;
     }
+    
+    public double implementarImpuesto() {
+
+        return 15.0;
+    }
 
     public double implementarImpuesto() {
         return 13.0;
@@ -36,6 +41,7 @@ public class Ti extends Categoria implements IDescuento {
         cadena += "Nombre: " + this.getNombre() + "\n";
         cadena += "Descripción: " + this.getDescripcion() + "\n";
         cadena += "Estado: " + this.isEstado() + "\n";
+        cadena += "Impuesto: " + implementarImpuesto() + "\n";
         cadena += "Descuento: " + implementarDescuento() + "%";
 
         return cadena;
