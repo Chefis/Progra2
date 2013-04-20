@@ -9,7 +9,10 @@ package ManejoInventario;
  * Fecha: 
  * --------------------------------------------------- 
  * Descripción:
- * 
+ * Modificado por: Oscar Mendoza
+ * Fecha: 19/04/2013
+ * --------------------------------------------------- 
+ * Descripción: Le agregue el impuesto
  */
 public class MueblesOficina extends Categoria implements IDescuento {
 
@@ -26,6 +29,11 @@ public class MueblesOficina extends Categoria implements IDescuento {
         return 50.0;
     }
     
+    public double implementarImpuesto() {
+
+        return 20.0;
+    }
+    
     @Override
     public String toString() {
         String cadena= "";
@@ -33,6 +41,7 @@ public class MueblesOficina extends Categoria implements IDescuento {
         cadena += "Nombre: " +this.getNombre()+ "\n";
         cadena += "Descripción: " +this.getDescripcion()+ "\n";
         cadena += "Estado: " +this.isEstado()+ "\n";
+        cadena += "Impuesto: " + implementarImpuesto() + "\n";
         cadena += "Descuento: " +implementarDescuento()+ "%";
         
         return cadena;
