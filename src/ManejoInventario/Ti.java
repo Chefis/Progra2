@@ -1,6 +1,6 @@
 package ManejoInventario;
 /*
- * Creado por: Daniela Bolivar
+ * Creado por: 
  * Fecha: 
  * -------------------------------------------------- 
  * Modificado por: 
@@ -25,6 +25,10 @@ public class Ti extends Categoria implements IDescuento {
         return 30.0;
     }
 
+    public double implementarImpuesto() {
+        return 13.0;
+    } 
+    
     @Override
     public String toString() {
         String cadena = "";

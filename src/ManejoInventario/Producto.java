@@ -8,7 +8,11 @@ package ManejoInventario;
  * Fecha: 14/abril/2013
  * --------------------------------------------------- 
  * Descripción:
- *  El producto, CREO, tiene que llevar Archivar, agregar, modificar, consultar
+ * Colocar el producto dentro de una categoria. xx
+ * Obtener el impuesto y el descuento por medio de la categoria. xx
+ * Enviar un mensaje cuando la cantidad minima.
+ * Enviar un mensaje para la cantidad max.
+ * 
  */
 
 public class Producto {
@@ -16,28 +20,33 @@ public class Producto {
     private String codigo;
     private String nombre;
     private String decripcion;
-    private Integer cantInicial;
-    private Integer cantMin;
-    private Integer canttotal;
-    private double costoUnid;
+    private Integer cantInicial; //esta se hace manual
+    private Integer cantMin; //tiene q tener un mensaje quedan solo xx
+    private Integer cantMax; //tiene q tener un mensaje 
+    private Integer existencias; //esta es la inicial mas si se le mete mas o se le quita
+    private double costoCompra;
     private double costoVenta;
-    private Distribuidor distribuidor;
-    private Categoria categoria; //este se puede quitar si no existen mas de una categoria
-
+    private Proveedor proveedor;
+    private Categoria categoria; 
+    private String fechaIngreso;
+    private boolean estado;
+    
     public Producto() {
     }
 
-    public Producto(String codigo, String nombre, String decripcion, Integer cantInicial, Integer cantMin, Integer canttotal, double costoUnid, double costoVenta, Distribuidor distribuidor, Categoria categoria) {
+    public Producto(String codigo, String nombre, String decripcion, Integer cantInicial, Integer cantMin, Integer cantMax, Integer existencias, double costoCompra, double costoVenta, Proveedor proveedor, Categoria categoria, boolean estado) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.decripcion = decripcion;
         this.cantInicial = cantInicial;
         this.cantMin = cantMin;
-        this.canttotal = canttotal;
-        this.costoUnid = costoUnid;
+        this.cantMax = cantMin;
+        this.existencias = existencias;
+        this.costoCompra = costoCompra;
         this.costoVenta = costoVenta;
-        this.distribuidor = distribuidor;
+        this.proveedor = proveedor;
         this.categoria = categoria;
+        this.estado = estado;
     }
 
     public String getCodigo() {
@@ -80,20 +89,28 @@ public class Producto {
         this.cantMin = cantMin;
     }
 
-    public Integer getCanttotal() {
-        return canttotal;
+    public Integer getCantMax() {
+        return cantMax;
     }
 
-    public void setCanttotal(Integer canttotal) {
-        this.canttotal = canttotal;
+    public void setCantMax(Integer cantMax) {
+        this.cantMax = cantMax;
     }
 
-    public double getCostoUnid() {
-        return costoUnid;
+    public Integer getExistencias() {
+        return existencias;
     }
 
-    public void setCostoUnid(double costoUnid) {
-        this.costoUnid = costoUnid;
+    public void setExsitencias(Integer existencias) {
+        this.existencias = existencias;
+    }
+
+    public double getCostoCompra() {
+        return costoCompra;
+    }
+
+    public void setCostoCompra(double costoCompra) {
+        this.costoCompra = costoCompra;
     }
 
     public double getCostoVenta() {
@@ -104,12 +121,12 @@ public class Producto {
         this.costoVenta = costoVenta;
     }
 
-    public Distribuidor getDistribuidor() {
-        return distribuidor;
+    public Proveedor getProveedor() {
+        return proveedor;
     }
 
-    public void setDistribuidor(Distribuidor distribuidor) {
-        this.distribuidor = distribuidor;
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
 
     public Categoria getCategoria() {
@@ -120,6 +137,44 @@ public class Producto {
         this.categoria = categoria;
     }
 
+    public String getFechaIngreso() {
+        return fechaIngreso;
+    }
+
+    public void setFechaIngreso(String fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
+    public double obtenerImpuesto() {
+
+        if (getCategoria() instanceof Electrodomesticos) {
+            return ((Electrodomesticos) getCategoria()).implementarImpuesto();
+        } else if (getCategoria() instanceof MueblesOficina) {
+            return ((MueblesOficina) getCategoria()).implementarImpuesto();
+        } else {
+            return ((Ti) getCategoria()).implementarImpuesto();
+        }
+    }
+    
+    public double obtenerDescuento() {
+
+        if (getCategoria() instanceof Electrodomesticos) {
+            return ((Electrodomesticos) getCategoria()).implementarDescuesto();
+        } else if (getCategoria() instanceof MueblesOficina) {
+            return ((MueblesOficina) getCategoria()).implementarDescuento();
+        } else {
+            return ((Ti) getCategoria()).implementarDescuento();
+        }
+    }
+    
     @Override
     public String toString() {
         String cadena = "";
@@ -127,18 +182,23 @@ public class Producto {
         cadena += "Detalles Generales\n";
         cadena += "Código: " +this.getCodigo()+ "\n";
         cadena += "Nombre: " +this.getNombre()+ "\n";
-        cadena += "Descripción: " +this.getDecripcion()+ "\n\n";
+        cadena += "Descripción: " +this.getDecripcion()+ "\n";
+        cadena += "Fecha ingreso: " +this.getFechaIngreso()+ "\n";
+        cadena += "Estado: " +this.isEstado()+ "\n\n";
         
         cadena += "Valores del Articulo\n";
         cadena += "Cantidad inicial: " +this.getCantInicial()+ "\n";
         cadena += "Cantidad minima: " +this.getCantMin()+ "\n";
-        cadena += "Cantidad total: " +this.getCanttotal()+ "\n";
-        cadena += "Costo unitario: " +this.getCostoUnid()+ "\n";
-        cadena += "Costo de venta: " +this.getCostoVenta()+ "\n\n";
+        cadena += "Cantidad maxima: " +this.getCantMax()+ "\n";
+        cadena += "Cantidad total: " +this.getExistencias()+ "\n";
+        cadena += "Costo de compra: " +this.getCostoCompra()+ "\n";
+        cadena += "Costo de venta: " +this.getCostoVenta()+ "\n";
+        cadena += "Impuesto:" +obtenerImpuesto()+ "\n";
+        cadena += "Descuento:" +obtenerDescuento()+ "\n\n";
         
         cadena += "Propiedades\n";
         cadena += "Categoria: " +this.getCategoria()+ "\n";
-        cadena += "Proveerdor: " +this.getDistribuidor()+ "\n";
+        cadena += "Proveerdor: " +this.getProveedor()+ "\n";
                 
         return cadena;
     }

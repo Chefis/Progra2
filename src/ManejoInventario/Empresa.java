@@ -19,7 +19,7 @@ public class Empresa {
     
     private String nombre;
     private String direccion;
-    private ArrayList<Distribuidor> listaDist = new ArrayList<Distribuidor>();
+    private ArrayList<Proveedor> listaDist = new ArrayList<Proveedor>();
     private ArrayList<Cliente> listaClientes = new ArrayList<Cliente>(); 
    
     public Empresa(){
@@ -43,7 +43,7 @@ public class Empresa {
         return direccion;
     }
 
-    public ArrayList<Distribuidor> getListaDist() {
+    public ArrayList<Proveedor> getListaDist() {
         return listaDist;
     }
 
@@ -60,7 +60,7 @@ public class Empresa {
         this.direccion = direccion;
     }
 
-    public void setListaDist(ArrayList<Distribuidor> listaDist) {
+    public void setListaDist(ArrayList<Proveedor> listaDist) {
         this.listaDist = listaDist;
     }
 
@@ -73,7 +73,7 @@ public class Empresa {
     }
     
       
-     public void agregarDistribuidor(Distribuidor d){
+     public void agregarDistribuidor(Proveedor d){
         listaDist.add(d);
     }
 

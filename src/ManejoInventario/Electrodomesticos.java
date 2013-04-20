@@ -1,7 +1,7 @@
 package ManejoInventario;
 
 /*
- * Creado por: Daniela Bolivar
+ * Creado por: 
  * Fecha: 
  * -------------------------------------------------- 
  * Modificado por: Jennifer Camacho 
@@ -23,7 +23,11 @@ public class Electrodomesticos extends Categoria implements ITaxable {
     public double implementarImpuesto() {
         return 10.0;
     }
-
+    
+    public double implementarDescuesto() {
+        return 0.0;
+    }
+    
     @Override
     public String toString() {
         String cadena = "";

@@ -2,7 +2,7 @@
 package ManejoInventario;
 
 /*
- * Creado por: Daniela Bolivar
+ * Creado por: 
  * Fecha: 
  * -------------------------------------------------- 
  * Modificado por: Jennifer Camacho
@@ -24,6 +24,10 @@ public class MueblesOficina extends Categoria implements IDescuento {
     public double implementarDescuento() {
 
         return 50.0;
+    }
+    
+    public double implementarImpuesto() {
+        return 0.0;
     }
     
     @Override

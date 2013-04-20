@@ -16,7 +16,7 @@ import java.util.Date;
  */
 
 
-public class Distribuidor {
+public class Proveedor {
     
     private String nombre = "";
     private String empresa = "";
@@ -26,10 +26,10 @@ public class Distribuidor {
     private Categoria tipoProductos;
     private ArrayList<Producto> lDP = new ArrayList<Producto>();
 
-    public Distribuidor() {
+    public Proveedor() {
     }
 
-    public Distribuidor(String nombre, String empresa, String telefonos, Categoria tipoProductos, Date fechaEntrega) {
+    public Proveedor(String nombre, String empresa, String telefonos, Categoria tipoProductos, Date fechaEntrega) {
         
         this.nombre = nombre;
         this.empresa = empresa;

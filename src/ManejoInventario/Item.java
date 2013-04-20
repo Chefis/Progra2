@@ -8,7 +8,7 @@ package ManejoInventario;
  * Fecha: 
  * --------------------------------------------------- 
  * Descripción:
- * Esta se usa hasta el final cuando ya se hace la venta. Bodega tiene que tener una copia
+ * 
  */
 
 
@@ -46,8 +46,8 @@ public class Item {
         return subtotal;
     }
 
-    public void setNumLinea(int numLinea) {
-        this.numLinea = numLinea;
+    public void setNumLinea(Factura factura) {
+        this.numLinea = factura.getListaItem().size() + 1;
     }
 
     public void setProducto(Producto producto) {
@@ -65,18 +65,13 @@ public class Item {
     
     public void calcularSubtotal() {
 
-        setSubtotal(this.cant * producto.getCostoUnid());
+        setSubtotal(this.cant * producto.getCostoVenta());
     } 
  
-//     public void numConsecutivo(Factura orden) {
-//      
-//         setNumLinea(Factura().size()+1);
-//    }
-
     @Override
     public String toString() {
         return this.getNumLinea() + " " + this.getCant() + " " + this.getProducto() + " "
-                + producto.getCostoUnid() + " " + this.getSubtotal();
+                + producto.getCostoVenta() + " " + this.getSubtotal();
     }
 }
 
