@@ -59,14 +59,14 @@ public class Item {
         this.cant = cant;
     }
 
-    public void setSubtotal(double total) {
-        this.subtotal = total;
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
     }
 
     //Hace el calculo para sacar el subtotal
     public void calcularSubtotal() {
 
-        setSubtotal(this.cant * producto.getCostoVenta());
+        setSubtotal(getCant() * producto.getCostoVenta());
     } 
     
     @Override

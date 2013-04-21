@@ -1,5 +1,7 @@
 package ManejoInventario;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -60,17 +62,37 @@ public class Factura {
 
         return fechaformato;
     }
+    
+     public void exportarFactura() {
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+
+        try {
+            fichero = new FileWriter("F://Factura.TXT");
+            pw = new PrintWriter(fichero);
+            pw.println(this.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fichero) {
+                    fichero.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
 
     @Override
     public String toString() {
+        if(orden.validacion()=="Orden Aprobada"){
             String cadena = "";
-            cadena +="Factura:\n" 
+            cadena +="Factura:\n" + getNumero()
                    + "Fecha: " + fechaformato() + "\n"
                    +  "Numero de Factura: " + getNumero() + "\n" 
                    + orden.imprimir();
-                 
-
-
-        return cadena;
+            return cadena;
+        }else return "La orden de compra fue rechazada";
     }
 }

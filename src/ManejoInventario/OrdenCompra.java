@@ -1,5 +1,7 @@
 package ManejoInventario;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -27,13 +29,14 @@ public class OrdenCompra {
     public OrdenCompra() {
     }
 
-    public OrdenCompra(Date fecha, Cliente cliente, String detalle, String aprobacion) {
+    public OrdenCompra(int numero, Date fecha, Cliente cliente, String detalle, String aprobacion) {
 
         this.aprobacion = aprobacion;
         this.cliente = cliente;
         this.detalle = detalle;
         this.fecha = fecha;
-       
+        this.numero = numero;
+
 
     }
 
@@ -117,23 +120,45 @@ public class OrdenCompra {
     public String consulta() {
         return this.toString();
     }
-    
-    public void agregarItem(Item i){
+
+    public void agregarItem(Item i) {
         i.calcularSubtotal();
         item.add(i);
     }
-    
-    public String imprimir(){
+
+    public void exportarOrdenCompra() {
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+
+        try {
+            fichero = new FileWriter("F://Orden Compra.TXT");
+            pw = new PrintWriter(fichero);
+            pw.println(this.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fichero) {
+                    fichero.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public String imprimir() {
         String ret = "";
         double montofinal = 0.0;
         double impuesto = 0.0;
         double descuento = 0.0;
-        
-            ret +="Detalle: " +getDetalle() + "\n"
+
+
+        ret += "Detalle: " + getDetalle() + "\n"
                 + "Cliente: " + getCliente() + "\n"
-                + "___________________________________________________________________________________________\n"
+                + "________________________________________________________________________________________________\n"
                 + "No.Linea\tCant.\tDescripcion\tPrecio Unitario\tImpuesto\tDescuento\tSubTotal\n"
-                + "-------------------------------------------------------------------------------------------\n";
+                + "------------------------------------------------------------------------------------------------\n";
 
         Iterator<Item> it = this.getItem().iterator();
         while (it.hasNext()) {
@@ -144,28 +169,29 @@ public class OrdenCompra {
 
 
             ret += itemOrden.getNumLinea() + "\t\t" + itemOrden.getCant() + "\t" + itemOrden.getProducto().getNombre() + "\t\t"
-                + itemOrden.getProducto().getCostoVenta() + "\t\t" + impuesto + "\t\t" + descuento + "\t\t" + ((itemOrden.getSubtotal() + (itemOrden.getSubtotal() * impuesto / 100)) / descuento) + "\n";
+                    + itemOrden.getProducto().getCostoVenta() + "\t\t" + impuesto + "\t\t" + descuento + "\t\t"
+                    + ((itemOrden.getSubtotal() + (itemOrden.getSubtotal() * impuesto / 100)) - (itemOrden.getSubtotal() * descuento / 100)) + "\n";
 
-            montofinal += ((itemOrden.getSubtotal() + (itemOrden.getSubtotal() * impuesto / 100)) / descuento);
+            montofinal += (itemOrden.getSubtotal() + (itemOrden.getSubtotal() * 13 / 100));
 
         }
-        
-        ret += "----------------------------------------------------------------------------------------------\n"
+
+        ret += "------------------------------------------------------------------------------------------------\n"
                 + "TOTAL DE LA ORDEN : " + montofinal;
-        
-    return ret;
+
+        return ret;
     }
 
     @Override
     public String toString() {
         String cadena = "";
-      
 
-        cadena +="Orden de Compra: \n\n" 
-               + "Numero Orden: " + this.getNumero() + "\n"
-               + "Fecha: " + fechaformato() + "\n"
-               + imprimir() ;
-         
+
+        cadena += "Orden de Compra: \n\n"
+                + "Numero Orden: " + this.getNumero() + "\n"
+                + "Fecha: " + fechaformato() + "\n"
+                + imprimir();
+
         return cadena + "\t\t" + validacion();
     }
 }

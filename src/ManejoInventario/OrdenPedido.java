@@ -1,5 +1,7 @@
 package ManejoInventario;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -115,6 +117,27 @@ public class OrdenPedido {
     public void agregarItem(Item i){
         i.calcularSubtotal();
         listaItem.add(i);
+    }
+    
+     public void exportarOrdenPedido() {
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+
+        try {
+            fichero = new FileWriter("F://Orden Pedido.TXT");
+            pw = new PrintWriter(fichero);
+            pw.println(this.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fichero) {
+                    fichero.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
     
     @Override
