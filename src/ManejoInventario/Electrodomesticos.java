@@ -27,17 +27,17 @@ public class Electrodomesticos extends Categoria implements ITaxable {
         return 10.0;
     }
     
-<<<<<<< HEAD
+
     public double implementarDescuesto() {
         return 0.0;
     }
     
-=======
+
     public double implementarDescuento() {
         return 5.0;
     }
 
->>>>>>> f58d860c03c1adc0f34420593fe0f6bc0905ba0d
+
     @Override
     public String toString() {
         String cadena = "";

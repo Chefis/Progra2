@@ -1,4 +1,3 @@
-
 package ManejoInventario;
 /*
  * Creado por: Jennifer Camacho
@@ -10,27 +9,27 @@ package ManejoInventario;
  * Descripción:
  * Colocar el producto dentro de una categoria. xx
  * Obtener el impuesto y el descuento por medio de la categoria. xx
- * Enviar un mensaje cuando la cantidad minima.
- * Enviar un mensaje para la cantidad max.
- * 
+ * Enviar un mensaje cuando la cantidad minima. xx
+ * Enviar un mensaje para la cantidad max. xx
+ * Agregar producto
  */
 
 public class Producto {
-    
+
     private String codigo;
     private String nombre;
     private String decripcion;
     private Integer cantInicial; //esta se hace manual
-    private Integer cantMin; //tiene q tener un mensaje quedan solo xx
+    private Integer cantMin = 0; //tiene q tener un mensaje quedan solo xx
     private Integer cantMax; //tiene q tener un mensaje 
     private Integer existencias; //esta es la inicial mas si se le mete mas o se le quita
     private double costoCompra;
     private double costoVenta;
     private Proveedor proveedor;
-    private Categoria categoria; 
+    private Categoria categoria;
     private String fechaIngreso;
     private boolean estado;
-    
+
     public Producto() {
     }
 
@@ -152,7 +151,7 @@ public class Producto {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
+
     public double obtenerImpuesto() {
 
         if (getCategoria() instanceof Electrodomesticos) {
@@ -163,7 +162,7 @@ public class Producto {
             return ((Ti) getCategoria()).implementarImpuesto();
         }
     }
-    
+
     public double obtenerDescuento() {
 
         if (getCategoria() instanceof Electrodomesticos) {
@@ -174,33 +173,69 @@ public class Producto {
             return ((Ti) getCategoria()).implementarDescuento();
         }
     }
-    
+
+   /* public String agregarProducto() {
+
+        Integer  
+
+                
+        return mensaje;
+    }*/
+    public String mensajeCantMin() {
+
+        String mensaje = "";
+
+        if (getExistencias() == getCantMin() + 3) {
+            mensaje = "Se encuentra a 3 productos del límite mínimo de existencias.";
+        }
+
+        if (getExistencias() == getCantMin()) {
+            mensaje = "Ha llegado al límite mínimo de existencias.\n"
+                    + "POR FAVOR INGRESE NUEVO PRODUCTO.";
+        }
+        return mensaje;
+    }
+
+    public String mensajeCantMax() {
+
+        String mensaje = "";
+
+        if (getExistencias() == getCantMax() - 3) {
+            mensaje = "Se encuentra a 3 productos del límite maximo de existencias.";
+        }
+
+        if (getExistencias() == getCantMax()) {
+            mensaje = "HA LLEGADO AL MAXIMO PERMITIDO DE EXISTENCIAS.\n"
+                    + "Por favor, recuerde no superar la cantidad maxima permitida";
+        }
+        return mensaje;
+    }
+        
     @Override
     public String toString() {
         String cadena = "";
-        
+
         cadena += "Detalles Generales\n";
-        cadena += "Código: " +this.getCodigo()+ "\n";
-        cadena += "Nombre: " +this.getNombre()+ "\n";
-        cadena += "Descripción: " +this.getDecripcion()+ "\n";
-        cadena += "Fecha ingreso: " +this.getFechaIngreso()+ "\n";
-        cadena += "Estado: " +this.isEstado()+ "\n\n";
-        
+        cadena += "Código: " + this.getCodigo() + "\n";
+        cadena += "Nombre: " + this.getNombre() + "\n";
+        cadena += "Descripción: " + this.getDecripcion() + "\n";
+        cadena += "Fecha ingreso: " + this.getFechaIngreso() + "\n";
+        cadena += "Estado: " + this.isEstado() + "\n\n";
+
         cadena += "Valores del Articulo\n";
-        cadena += "Cantidad inicial: " +this.getCantInicial()+ "\n";
-        cadena += "Cantidad minima: " +this.getCantMin()+ "\n";
-        cadena += "Cantidad maxima: " +this.getCantMax()+ "\n";
-        cadena += "Cantidad total: " +this.getExistencias()+ "\n";
-        cadena += "Costo de compra: " +this.getCostoCompra()+ "\n";
-        cadena += "Costo de venta: " +this.getCostoVenta()+ "\n";
-        cadena += "Impuesto:" +obtenerImpuesto()+ "\n";
-        cadena += "Descuento:" +obtenerDescuento()+ "\n\n";
-        
+        cadena += "Cantidad inicial: " + this.getCantInicial() + "\n";
+        cadena += "Cantidad minima: " + this.getCantMin() + "\n";
+        cadena += "Cantidad maxima: " + this.getCantMax() + "\n";
+        cadena += "Cantidad total: " + this.getExistencias() + "\n";
+        cadena += "Costo de compra: " + this.getCostoCompra() + "\n";
+        cadena += "Costo de venta: " + this.getCostoVenta() + "\n";
+        cadena += "Impuesto:" + obtenerImpuesto() + "\n";
+        cadena += "Descuento:" + obtenerDescuento() + "\n\n";
+
         cadena += "Propiedades\n";
-        cadena += "Categoria: " +this.getCategoria()+ "\n";
-        cadena += "Proveerdor: " +this.getProveedor()+ "\n";
-                
+        cadena += "Categoria: " + this.getCategoria() + "\n";
+        cadena += "Proveerdor: " + this.getProveedor() + "\n";
+
         return cadena;
     }
-        
 }

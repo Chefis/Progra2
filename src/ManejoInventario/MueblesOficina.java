@@ -30,12 +30,9 @@ public class MueblesOficina extends Categoria implements IDescuento {
     }
     
     public double implementarImpuesto() {
-<<<<<<< HEAD
-        return 0.0;
-=======
-
+       
         return 20.0;
->>>>>>> f58d860c03c1adc0f34420593fe0f6bc0905ba0d
+
     }
     
     @Override

@@ -19,27 +19,27 @@ public class Factura {
     private long numero;
     private Date fecha;
     private Cliente Cliente;
-    private Distribuidor distribuidor;
+    private Proveedor proveedor;
     private String Detalle;
     private ArrayList<Item> listaItem = new ArrayList<Item>();
 
     public Factura() {
     }
 
-    public Factura(long numero, Date fecha, Cliente Cliente, ArrayList listaItem, Distribuidor distribuidor) {
+    public Factura(long numero, Date fecha, Cliente Cliente, ArrayList listaItem, Proveedor proveedor) {
         this.numero = numero;
         this.fecha = fecha;
         this.Cliente = Cliente;
         this.listaItem = listaItem;
-        this.distribuidor = distribuidor;
+        this.proveedor = proveedor;
     }
 
-    public Distribuidor getDistribuidor() {
-        return distribuidor;
+    public Proveedor getProveedor() {
+        return proveedor;
     }
 
-    public void setDistribuidor(Distribuidor distribuidor) {
-        this.distribuidor = distribuidor;
+    public void setProveedro(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
 
     public Cliente getCliente() {
@@ -105,8 +105,8 @@ public class Factura {
         if (getCliente() != null) {
             cadena += "Cliente: " + getCliente() + "\n";
         } else {
-            if (getDistribuidor() != null) {
-                cadena += "Proveedor: " + getDistribuidor() + "\n";
+            if (getProveedor() != null) {
+                cadena += "Proveedor: " + getProveedor() + "\n";
             }
         }
         cadena += "___________________________________________________________________________________________\n"
@@ -139,7 +139,7 @@ public class Factura {
 
 
             cadena += itemOrden.getNumLinea() + "\t\t" + itemOrden.getCant() + "\t" + itemOrden.getProducto().getNombre() + "\t\t"
-                    + itemOrden.getProducto().getCostoUnid() + "\t\t" + impuesto + "\t\t" + descuento + "\t\t" + ((itemOrden.getSubtotal() + (itemOrden.getSubtotal() * impuesto / 100)) / descuento) + "\n";
+                    + itemOrden.getProducto().getCostoVenta() + "\t\t" + impuesto + "\t\t" + descuento + "\t\t" + ((itemOrden.getSubtotal() + (itemOrden.getSubtotal() * impuesto / 100)) / descuento) + "\n";
 
             montofinal += ((itemOrden.getSubtotal() + (itemOrden.getSubtotal() * impuesto / 100)) / descuento);
 

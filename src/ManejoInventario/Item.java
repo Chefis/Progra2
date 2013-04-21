@@ -68,14 +68,6 @@ public class Item {
         setSubtotal(this.cant * producto.getCostoVenta());
     } 
  
-<<<<<<< HEAD
-=======
-     public void numConsecutivo(Factura factura) {
-      
-            setNumLinea(factura.getListaItem().size()+1);
-    }
-
->>>>>>> f58d860c03c1adc0f34420593fe0f6bc0905ba0d
     @Override
     public String toString() {
         return this.getNumLinea() + " " + this.getCant() + " " + this.getProducto() + " "
