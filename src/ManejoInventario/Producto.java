@@ -23,10 +23,10 @@ public class Producto {
     private String codigo;
     private String nombre;
     private String decripcion;
-    private Integer cantInicial; //esta se hace manual
-    private Integer cantMin = 0; //tiene q tener un mensaje quedan solo xx
-    private Integer cantMax; //tiene q tener un mensaje 
-    private Integer existencias; //esta es la inicial mas si se le mete mas o se le quita
+    private int cantInicial; //esta se hace manual
+    private int cantMin = 0; //tiene q tener un mensaje quedan solo xx
+    private int cantMax; //tiene q tener un mensaje 
+    private int existencias; //esta es la inicial mas si se le mete mas o se le quita
     private double costoCompra;
     private double costoVenta;
     private Proveedor proveedor;
@@ -37,7 +37,7 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(String codigo, String nombre, String decripcion, Integer cantInicial, Integer cantMin, Integer cantMax, Integer existencias, double costoCompra, double costoVenta, Proveedor proveedor, Categoria categoria, boolean estado) {
+    public Producto(String codigo, String nombre, String decripcion, int cantInicial, int cantMin, int cantMax, int existencias, double costoCompra, double costoVenta, Proveedor proveedor, Categoria categoria, boolean estado) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.decripcion = decripcion;
@@ -76,35 +76,35 @@ public class Producto {
         this.decripcion = decripcion;
     }
 
-    public Integer getCantInicial() {
+    public int getCantInicial() {
         return cantInicial;
     }
 
-    public void setCantInicial(Integer cantInicial) {
+    public void setCantInicial(int cantInicial) {
         this.cantInicial = cantInicial;
     }
 
-    public Integer getCantMin() {
+    public int getCantMin() {
         return cantMin;
     }
 
-    public void setCantMin(Integer cantMin) {
+    public void setCantMin(int cantMin) {
         this.cantMin = cantMin;
     }
 
-    public Integer getCantMax() {
+    public int getCantMax() {
         return cantMax;
     }
 
-    public void setCantMax(Integer cantMax) {
+    public void setCantMax(int cantMax) {
         this.cantMax = cantMax;
     }
 
-    public Integer getExistencias() {
+    public int getExistencias() {
         return existencias;
     }
 
-    public void setExsitencias(Integer existencias) {
+    public void setExsitencias(int existencias) {
         this.existencias = cantInicial;
     }
 
