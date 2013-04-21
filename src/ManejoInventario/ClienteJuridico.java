@@ -32,7 +32,7 @@ public class ClienteJuridico extends Cliente{
     
     @Override
     public String toString(){
-        return "Nombre de la empresa: " +this.getNombre()+ "\n Responsable: " +this.getResponsableLegal()+ "\n Dirección: " +this.getDireccion()+ "\n Teléfono: " +this.getTelefono();
+        return "Nombre: " +this.getNombre()+ "\nResponsable: " +this.getResponsableLegal()+ "\nDirección: " +this.getDireccion()+ "\nTeléfono: " +this.getTelefono()+"\n\n";
     }
     
     

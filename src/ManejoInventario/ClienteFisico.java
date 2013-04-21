@@ -20,7 +20,7 @@ public class ClienteFisico extends Cliente {
 
     @Override
     public String toString(){
-        return "Nombre de la empresa: " +this.getNombre()+ "\n Dirección: " +this.getDireccion()+ "\n Teléfono: " +this.getTelefono();
+        return "Nombre: " +this.getNombre()+ "\nDirección: " +this.getDireccion()+ "\nTeléfono: " +this.getTelefono() + "\n\n";
     }
     
     
