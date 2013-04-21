@@ -15,64 +15,74 @@ import java.util.Iterator;
  * Aprobar, rechazar, modificar, consultar
  */
 public class OrdenPedido {
-
+    
     private String aprobacion = "";
+    private String detalle = "";
     private ArrayList<Item> listaItem = new ArrayList<Item>();
     private Proveedor proveedor;
     private long numero;
     private Date fecha;
-
+    
     public OrdenPedido() {
     }
-
-    public OrdenPedido(Date fecha, long numero, ArrayList listaItem, Proveedor proveedor) {
+    
+    public OrdenPedido(Date fecha, long numero, Proveedor proveedor, String detalle) {
         this.proveedor = proveedor;
         this.numero = numero;
-        this.listaItem = listaItem;
         this.fecha = fecha;
+        this.detalle = detalle;
     }
 
+    public String getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(String detalle) {
+        this.detalle = detalle;
+    }
+    
     public ArrayList<Item> getListaItem() {
         return listaItem;
     }
-
+    
     public void setListaItem(ArrayList<Item> listaItem) {
         this.listaItem = listaItem;
     }
-
+    
     public String getAprobacion() {
         return aprobacion;
     }
-
+    
     public void setAprobacion(String aprobacion) {
         this.aprobacion = aprobacion;
     }
-
+    
     public Proveedor getProveedor() {
         return proveedor;
-
+        
     }
-
+    
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
     }
-
+    
     public long getNumero() {
         return numero;
     }
-
+    
     public void setNumero(long numero) {
         this.numero = numero;
     }
-
+    
     public Date getFecha() {
         return fecha;
     }
-
+    
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
     //Valida si la orden esta Aprobada o rechazada
+
     public String validacion() {
         if (aprobacion.equalsIgnoreCase("Aprobado")) {
             return "Orden Aprobada";
@@ -86,44 +96,46 @@ public class OrdenPedido {
         return this.toString();
     }
     //Asigna la cantidad que se va aumentar las existencias en stock de un producto
-    public int aumCant() {
-        int ingresoProducto = 0;
-        Iterator<Item> it = this.getListaItem().iterator();
-        while (it.hasNext()) {
-        Item itemOrden = (Item) it.next();
-        ingresoProducto += itemOrden.getCant();
-        
-        }
-        return ingresoProducto;
+
+    public void aumCant() {
+        Item itemOrden = new Item();
+        itemOrden.getProducto().agregarProducto(itemOrden.getCant());
     }
     //Le da formato a la fecha
-    public String fechaformato(){
-    int anno = this.getFecha().getYear() + 1900;
+
+    public String fechaformato() {
+        int anno = this.getFecha().getYear() + 1900;
         int mes = this.getFecha().getMonth() + 1;
         int dia = this.getFecha().getDay();
         String fechaformato = dia + "/" + mes + "/" + anno;
         
-    return fechaformato;
+        return fechaformato;
     }
-
+    
+    public void agregarItem(Item i){
+        i.calcularSubtotal();
+        listaItem.add(i);
+    }
+    
     @Override
     public String toString() {
         Iterator<Item> it = this.getListaItem().iterator();
         String cadena = "";
         double montofinal = 0.0;
-
-
-        cadena += "Orden Pedido:\n"
-                + "Fecha: " + fechaformato()+ "\n"
+        
+        
+        cadena += "Orden Pedido:\n\n"
+                + "Detalle: " + getDetalle()
+                + "Fecha: " + fechaformato() + "\n"
                 + "Proveedor: " + getProveedor() + "\n"
                 + "Numero de orden: " + getNumero() + "\n"
                 + "____________________________________________________________\n"
                 + "No.Linea\tCant.\tDescripcion\tPrecio Unitario\tSubTotal\n"
                 + "------------------------------------------------------------\n";
-
+        
         while (it.hasNext()) {
             Item itemOrden = (Item) it.next();
-
+            
             cadena += itemOrden.getNumLinea() + "\t\t" + itemOrden.getCant() + "\t" + itemOrden.getProducto().getNombre() + "\t\t"
                     + itemOrden.getProducto().getCostoCompra() + "\t\t" + itemOrden.getSubtotal() + "\n";
             montofinal += itemOrden.getSubtotal() + itemOrden.getSubtotal();

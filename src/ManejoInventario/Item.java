@@ -47,8 +47,8 @@ public class Item {
         return subtotal;
     }
 
-    public void setNumLinea(Factura factura) {
-        this.numLinea = factura.getListaItem().size() + 1;
+    public void setNumLinea(OrdenCompra factura) {
+        this.numLinea = factura.getItem().size() + 1;
     }
 
     public void setProducto(Producto producto) {

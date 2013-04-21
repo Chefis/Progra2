@@ -27,13 +27,13 @@ public class OrdenCompra {
     public OrdenCompra() {
     }
 
-    public OrdenCompra(Date fecha, Cliente cliente, String detalle, String aprobacion, ArrayList item) {
+    public OrdenCompra(Date fecha, Cliente cliente, String detalle, String aprobacion) {
 
         this.aprobacion = aprobacion;
         this.cliente = cliente;
         this.detalle = detalle;
         this.fecha = fecha;
-        this.item = item;
+       
 
     }
 
@@ -85,6 +85,7 @@ public class OrdenCompra {
         this.item = item;
     }
     //Este metodo comprueba si la orden esta aprovada o rechazada
+
     public String validacion() {
         if (aprobacion.equalsIgnoreCase("Aprobado")) {
             return "Orden Aprobada";
@@ -105,10 +106,10 @@ public class OrdenCompra {
     //Este metodo asigna a ingresoProducto la cantida que se debe de disminuir del stock en bodega
 
     public void disminuirCant() {
-    
+
         Item itemOrden = new Item();
-       
-            itemOrden.getProducto().sacarProducto(itemOrden.getCant());
+
+        itemOrden.getProducto().sacarProducto(itemOrden.getCant());
 
     }
 
@@ -116,18 +117,20 @@ public class OrdenCompra {
     public String consulta() {
         return this.toString();
     }
-
-    @Override
-    public String toString() {
-        String cadena = "";
+    
+    public void agregarItem(Item i){
+        i.calcularSubtotal();
+        item.add(i);
+    }
+    
+    public String imprimir(){
+        String ret = "";
         double montofinal = 0.0;
         double impuesto = 0.0;
         double descuento = 0.0;
         
-        cadena += getDetalle() + "\n"
-                + "Fecha: " + fechaformato() + "\n"
-                + "Numero Orden: " + this.getNumero() + "\n"
-                + "Cliente: " + getCliente() 
+            ret +="Detalle: " +getDetalle() + "\n"
+                + "Cliente: " + getCliente() + "\n"
                 + "___________________________________________________________________________________________\n"
                 + "No.Linea\tCant.\tDescripcion\tPrecio Unitario\tImpuesto\tDescuento\tSubTotal\n"
                 + "-------------------------------------------------------------------------------------------\n";
@@ -140,16 +143,29 @@ public class OrdenCompra {
             descuento += itemOrden.getProducto().obtenerDescuento();
 
 
-            cadena += itemOrden.getNumLinea() + "\t\t" + itemOrden.getCant() + "\t" + itemOrden.getProducto().getNombre() + "\t\t"
-                    + itemOrden.getProducto().getCostoVenta() + "\t\t" + impuesto + "\t\t" + descuento + "\t\t" + ((itemOrden.getSubtotal() + (itemOrden.getSubtotal() * impuesto / 100)) / descuento) + "\n";
+            ret += itemOrden.getNumLinea() + "\t\t" + itemOrden.getCant() + "\t" + itemOrden.getProducto().getNombre() + "\t\t"
+                + itemOrden.getProducto().getCostoVenta() + "\t\t" + impuesto + "\t\t" + descuento + "\t\t" + ((itemOrden.getSubtotal() + (itemOrden.getSubtotal() * impuesto / 100)) / descuento) + "\n";
 
             montofinal += ((itemOrden.getSubtotal() + (itemOrden.getSubtotal() * impuesto / 100)) / descuento);
 
         }
-
-        cadena += "----------------------------------------------------------------------------------------------\n"
+        
+        ret += "----------------------------------------------------------------------------------------------\n"
                 + "TOTAL DE LA ORDEN : " + montofinal;
+        
+    return ret;
+    }
 
+    @Override
+    public String toString() {
+        String cadena = "";
+      
+
+        cadena +="Orden de Compra: \n\n" 
+               + "Numero Orden: " + this.getNumero() + "\n"
+               + "Fecha: " + fechaformato() + "\n"
+               + imprimir() ;
+         
         return cadena + "\t\t" + validacion();
     }
 }

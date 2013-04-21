@@ -17,69 +17,60 @@ public class Factura {
 
     private int numero;
     private Date fecha;
-    private Cliente Cliente;
-    private String Detalle;
-    private ArrayList<Item> listaItem = new ArrayList<Item>();
+    private OrdenCompra orden = new OrdenCompra();
 
     public Factura() {
     }
 
-    public Factura(int numero, Date fecha, Cliente Cliente, ArrayList listaItem, Proveedor proveedor) {
+    public Factura(int numero, Date fecha) {
         this.numero = numero;
         this.fecha = fecha;
-        this.Cliente = Cliente;
-        this.listaItem = listaItem;
-      
-    }
-
-    public Cliente getCliente() {
-        return Cliente;
-    }
-
-    public String getDetalle() {
-        return Detalle;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public ArrayList<Item> getListaItem() {
-        return listaItem;
     }
 
     public int getNumero() {
         return numero;
     }
 
-    public void setCliente(Cliente Cliente) {
-        this.Cliente = Cliente;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
-    public void setDetalle(String Detalle) {
-        this.Detalle = Detalle;
+    public Date getFecha() {
+        return fecha;
     }
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public void setListaItem(ArrayList<Item> listaItem) {
-        this.listaItem = listaItem;
+    public OrdenCompra getOrden() {
+        return orden;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setOrden(OrdenCompra orden) {
+        this.orden = orden;
     }
 
-    public void agregarItem(Item i) {
-        listaItem.add(i);
+    //Le da formato a la fecha
+    public String fechaformato() {
+        int anno = this.getFecha().getYear() + 1900;
+        int mes = this.getFecha().getMonth() + 1;
+        int dia = this.getFecha().getDay();
+        String fechaformato = dia + "/" + mes + "/" + anno;
+
+        return fechaformato;
     }
-   
-//    @Override
-//    public String toString() {
-//
-//      
-//        
-//    }
+
+    @Override
+    public String toString() {
+            String cadena = "";
+            cadena +="Factura:\n" 
+                   + "Fecha: " + fechaformato() + "\n"
+                   +  "Numero de Factura: " + getNumero() + "\n" 
+                   + orden.imprimir();
+                 
+
+
+        return cadena;
+    }
 }
