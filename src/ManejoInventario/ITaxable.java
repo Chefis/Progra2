@@ -5,7 +5,7 @@ package ManejoInventario;
  * Creado por: 
  * Fecha: 
  * -------------------------------------------------- 
- * Modificado por: 
+ * Modificado por: Jennifer Camacho
  * Fecha: 
  * --------------------------------------------------- 
  * Descripción:

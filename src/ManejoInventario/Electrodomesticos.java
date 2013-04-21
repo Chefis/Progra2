@@ -10,11 +10,7 @@ import java.util.Iterator;
  * Modificado por: Jennifer Camacho 
  * Fecha: 19/4/2013
  * --------------------------------------------------- 
- * Descripción:
- *  Modificado por: Oscar Mendoza
- * Fecha: 19/04/2013
- * --------------------------------------------------- 
- * Descripción: Le agregue el descuento
+ * Descripción: 
  */
 public class Electrodomesticos extends Categoria implements ITaxable {
 

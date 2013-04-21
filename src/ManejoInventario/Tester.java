@@ -30,7 +30,7 @@ public class Tester {
         emp.agregarProveedor(prov2);
         
      System.out.println(producto.consultarProducto());
-     System.out.println(electrodomesticos.productoPorCategoria(electrodomesticos));   
+   //  System.out.println(electrodomesticos.productoPorCategoria(electrodomesticos));   
      System.out.println("Lista de Clientes: "+emp.ImprimirCliente());
      System.out.println("Lista de Proveedores: "+emp.ImprimirProveedor());
     }

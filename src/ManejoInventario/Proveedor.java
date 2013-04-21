@@ -13,7 +13,7 @@ import java.util.Iterator;
  * Fecha: 
  * --------------------------------------------------- 
  * Descripción:
- *  Necesita una lista de Productos distribuidor
+ *  
  */
 
 

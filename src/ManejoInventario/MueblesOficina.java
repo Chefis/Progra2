@@ -10,11 +10,7 @@ import java.util.Iterator;
  * Modificado por: Jennifer Camacho
  * Fecha: 
  * --------------------------------------------------- 
- * Descripción:
- * Modificado por: Oscar Mendoza
- * Fecha: 19/04/2013
- * --------------------------------------------------- 
- * Descripción: Le agregue el impuesto
+ * Descripción: 
  */
 public class MueblesOficina extends Categoria implements IDescuento {
 

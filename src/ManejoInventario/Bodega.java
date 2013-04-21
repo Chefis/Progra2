@@ -7,7 +7,7 @@ import java.util.Iterator;
  * Creado por: Oscar Mendoza López
  * Fecha: 15/04/2013
  * -------------------------------------------------- 
- * Modificado por: 
+ * Modificado por: Marcela Leandro
  * Fecha: 
  * --------------------------------------------------- 
  * Descripción:
