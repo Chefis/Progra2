@@ -1,5 +1,7 @@
 package ManejoInventario;
 
+import java.util.ArrayList;
+
 /*
  * Creado por: Jennifer Camacho
  * Fecha: 14/abril/2013
@@ -15,6 +17,7 @@ public abstract class Categoria {
     private String nombre;
     private String descripcion;
     private boolean estado;
+    public ArrayList<Producto> listaProducto = new ArrayList<Producto>();
 
     public Categoria() {
     }
@@ -24,7 +27,7 @@ public abstract class Categoria {
         this.descripcion = descripcion;
         this.estado = estado;
     }
-
+    
     public String getNombre() {
         return nombre;
     }
@@ -48,4 +51,13 @@ public abstract class Categoria {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+    public ArrayList<Producto> getListaProducto() {
+        return listaProducto;
+    }
+
+    public void setListaProducto(ArrayList<Producto> listaProducto) {
+        this.listaProducto = listaProducto;
+    }
+    
 }

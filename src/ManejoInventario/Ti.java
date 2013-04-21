@@ -1,4 +1,8 @@
 package ManejoInventario;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /*
  * Creado por: 
  * Fecha: 
@@ -9,7 +13,6 @@ package ManejoInventario;
  * Descripción:
  * 
  */
-
 public class Ti extends Categoria implements IDescuento {
 
     public Ti() {
@@ -21,12 +24,28 @@ public class Ti extends Categoria implements IDescuento {
 
     @Override
     public double implementarDescuento() {
-
         return 30.0;
     }
 
     public double implementarImpuesto() {
         return 13.0;
+    }
+
+    public void agregarProducto(Producto producto) {
+        listaProducto.add(producto);
+    }
+
+    public ArrayList<Producto> productoPorCategoria(Ti ti) {
+        ArrayList<Producto> listaPorCategoria = new ArrayList<Producto>();
+
+        Iterator<Producto> it = listaProducto.iterator();
+        while (it.hasNext()) {
+            Producto producto = it.next();
+            if (producto.getCategoria().equals(ti)) {
+                listaPorCategoria.add(producto);
+            }
+        }
+        return listaPorCategoria;
     }
 
     @Override

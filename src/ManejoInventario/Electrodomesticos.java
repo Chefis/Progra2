@@ -1,5 +1,8 @@
 package ManejoInventario;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /*
  * Creado por: 
  * Fecha: 
@@ -27,17 +30,28 @@ public class Electrodomesticos extends Categoria implements ITaxable {
         return 10.0;
     }
     
-
-    public double implementarDescuesto() {
-        return 0.0;
-    }
-    
-
     public double implementarDescuento() {
         return 5.0;
     }
-
-
+    
+    public void agregarProducto(Producto producto) {
+        listaProducto.add(producto);
+    }
+    
+    public ArrayList<Producto> productoPorCategoria(Electrodomesticos electrodomesticos) {
+        ArrayList<Producto> listaPorCategoria = new ArrayList<Producto>();
+        
+        Iterator<Producto> it = listaProducto.iterator();
+        while (it.hasNext()) {
+            Producto producto = it.next();
+            if (producto.getCategoria().equals(electrodomesticos)) {
+                    listaPorCategoria.add(producto);
+                }
+            }
+        
+        return listaPorCategoria;
+    }
+    
     @Override
     public String toString() {
         String cadena = "";

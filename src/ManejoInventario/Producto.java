@@ -1,4 +1,9 @@
 package ManejoInventario;
+
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Date;
+
 /*
  * Creado por: Jennifer Camacho
  * Fecha: 
@@ -7,13 +12,12 @@ package ManejoInventario;
  * Fecha: 14/abril/2013
  * --------------------------------------------------- 
  * Descripción:
- * Colocar el producto dentro de una categoria. xx
- * Obtener el impuesto y el descuento por medio de la categoria. xx
- * Enviar un mensaje cuando la cantidad minima. xx
- * Enviar un mensaje para la cantidad max. xx
+ * Colocar el producto dentro de una categoria. 
+ * Obtener el impuesto y el descuento por medio de la categoria. 
+ * Enviar un mensaje cuando la cantidad minima. 
+ * Enviar un mensaje para la cantidad max. 
  * Agregar producto
  */
-
 public class Producto {
 
     private String codigo;
@@ -27,7 +31,7 @@ public class Producto {
     private double costoVenta;
     private Proveedor proveedor;
     private Categoria categoria;
-    private String fechaIngreso;
+    private Date fechaIngreso;
     private boolean estado;
 
     public Producto() {
@@ -101,7 +105,7 @@ public class Producto {
     }
 
     public void setExsitencias(Integer existencias) {
-        this.existencias = existencias;
+        this.existencias = cantInicial;
     }
 
     public double getCostoCompra() {
@@ -136,11 +140,11 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    public String getFechaIngreso() {
+    public Date getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(String fechaIngreso) {
+    public void setFechaIngreso(Date fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
@@ -166,7 +170,7 @@ public class Producto {
     public double obtenerDescuento() {
 
         if (getCategoria() instanceof Electrodomesticos) {
-            return ((Electrodomesticos) getCategoria()).implementarDescuesto();
+            return ((Electrodomesticos) getCategoria()).implementarDescuento();
         } else if (getCategoria() instanceof MueblesOficina) {
             return ((MueblesOficina) getCategoria()).implementarDescuento();
         } else {
@@ -174,13 +178,25 @@ public class Producto {
         }
     }
 
-   /* public String agregarProducto() {
+    public void agregarProducto(int ingresoProducto) {
 
-        Integer  
+        this.existencias += ingresoProducto;
+    }
 
-                
-        return mensaje;
-    }*/
+    public void sacarProducto(int productoVendido) {
+
+        if (productoVendido <= this.cantMin) {
+            this.existencias -= productoVendido;
+        } else {
+            System.out.println("No se puede realizar la compra.");
+        }
+    }
+
+    public String consultarProducto() {
+
+        return this.toString();
+    }
+
     public String mensajeCantMin() {
 
         String mensaje = "";
@@ -210,7 +226,28 @@ public class Producto {
         }
         return mensaje;
     }
-        
+
+    public void exportarProducto() {
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+
+        try {
+            fichero = new FileWriter("F://Prueba.TXT");
+            pw = new PrintWriter(fichero);
+            pw.println(this.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fichero) {
+                    fichero.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+   }
+
     @Override
     public String toString() {
         String cadena = "";
@@ -226,7 +263,7 @@ public class Producto {
         cadena += "Cantidad inicial: " + this.getCantInicial() + "\n";
         cadena += "Cantidad minima: " + this.getCantMin() + "\n";
         cadena += "Cantidad maxima: " + this.getCantMax() + "\n";
-        cadena += "Cantidad total: " + this.getExistencias() + "\n";
+        cadena += "Cantidad en existencias: " + this.getExistencias() + "\n";
         cadena += "Costo de compra: " + this.getCostoCompra() + "\n";
         cadena += "Costo de venta: " + this.getCostoVenta() + "\n";
         cadena += "Impuesto:" + obtenerImpuesto() + "\n";
