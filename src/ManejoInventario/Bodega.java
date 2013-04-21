@@ -52,8 +52,10 @@ public class Bodega {
         this.ubicacion = ubicacion;
     }
 
-    public void agregarProducto(Producto p) {
-        lP.add(p);
+    public void agregarProducot(Producto p) {
+        if (p.isEstado()) {
+            lP.add(p);
+        }
 
     }
 
