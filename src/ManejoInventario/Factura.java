@@ -123,7 +123,7 @@ public class Factura {
             } else if (itemOrden.getProducto().getCategoria() instanceof MueblesOficina) {
                 impuesto = ((MueblesOficina) itemOrden.getProducto().getCategoria()).implementarImpuesto();
             } else {
-                impuesto = ((Ti) itemOrden.getProducto().getCategoria()).implementarImpuesto();
+                impuesto = ((TecnologiaInfo) itemOrden.getProducto().getCategoria()).implementarImpuesto();
             }
 
             if (itemOrden.getProducto().getCategoria() instanceof Electrodomesticos) {
@@ -132,7 +132,7 @@ public class Factura {
             } else if (itemOrden.getProducto().getCategoria() instanceof MueblesOficina) {
                 descuento = ((MueblesOficina) itemOrden.getProducto().getCategoria()).implementarDescuento();
             } else {
-                descuento = ((Ti) itemOrden.getProducto().getCategoria()).implementarDescuento();
+                descuento = ((TecnologiaInfo) itemOrden.getProducto().getCategoria()).implementarDescuento();
             }
 
 

@@ -37,19 +37,20 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(String codigo, String nombre, String decripcion, int cantInicial, int cantMin, int cantMax, int existencias, double costoCompra, double costoVenta, Proveedor proveedor, Categoria categoria, boolean estado) {
+    public Producto(String codigo, String nombre, String decripcion, int cantInicial, int cantMin, int cantMax, int existencias, double costoCompra, double costoVenta, Proveedor proveedor, Categoria categoria, boolean estado, Date fechaIngreso) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.decripcion = decripcion;
         this.cantInicial = cantInicial;
         this.cantMin = cantMin;
-        this.cantMax = cantMin;
+        this.cantMax = cantMax;
         this.existencias = existencias;
         this.costoCompra = costoCompra;
         this.costoVenta = costoVenta;
         this.proveedor = proveedor;
         this.categoria = categoria;
         this.estado = estado;
+        this.fechaIngreso = fechaIngreso;
     }
 
     public String getCodigo() {
@@ -163,7 +164,7 @@ public class Producto {
         } else if (getCategoria() instanceof MueblesOficina) {
             return ((MueblesOficina) getCategoria()).implementarImpuesto();
         } else {
-            return ((Ti) getCategoria()).implementarImpuesto();
+            return ((TecnologiaInfo) getCategoria()).implementarImpuesto();
         }
     }
 
@@ -174,8 +175,9 @@ public class Producto {
         } else if (getCategoria() instanceof MueblesOficina) {
             return ((MueblesOficina) getCategoria()).implementarDescuento();
         } else {
-            return ((Ti) getCategoria()).implementarDescuento();
+            return ((TecnologiaInfo) getCategoria()).implementarDescuento();
         }
+
     }
 
     public void agregarProducto(int ingresoProducto) {
@@ -185,7 +187,7 @@ public class Producto {
 
     public void sacarProducto(int productoVendido) {
 
-        if (productoVendido <= this.cantMin) {
+        if (productoVendido <= this.existencias) {
             this.existencias -= productoVendido;
         } else {
             System.out.println("No se puede realizar la compra.");
@@ -201,11 +203,11 @@ public class Producto {
 
         String mensaje = "";
 
-        if (getExistencias() == getCantMin() + 3) {
+        if (this.getExistencias() == (this.getCantMin() + 3)) {
             mensaje = "Se encuentra a 3 productos del límite mínimo de existencias.";
         }
 
-        if (getExistencias() == getCantMin()) {
+        if (this.getExistencias() <= this.getCantMin()) {
             mensaje = "Ha llegado al límite mínimo de existencias.\n"
                     + "POR FAVOR INGRESE NUEVO PRODUCTO.";
         }
@@ -216,11 +218,11 @@ public class Producto {
 
         String mensaje = "";
 
-        if (getExistencias() == getCantMax() - 3) {
+        if (this.getExistencias() == (this.getCantMax() - 3)) {
             mensaje = "Se encuentra a 3 productos del límite maximo de existencias.";
         }
 
-        if (getExistencias() == getCantMax()) {
+        if (this.getExistencias() >= this.getCantMax()) {
             mensaje = "HA LLEGADO AL MAXIMO PERMITIDO DE EXISTENCIAS.\n"
                     + "Por favor, recuerde no superar la cantidad maxima permitida";
         }
@@ -246,17 +248,22 @@ public class Producto {
                 e2.printStackTrace();
             }
         }
-   }
+    }
 
     @Override
     public String toString() {
         String cadena = "";
+        int anno = this.getFechaIngreso().getYear() + 1900;
+        int mes = this.getFechaIngreso().getMonth() + 1;
+        int dia = this.getFechaIngreso().getDay();
+        String fechaformato = dia + "/" + mes + "/" + anno;
+
 
         cadena += "Detalles Generales\n";
         cadena += "Código: " + this.getCodigo() + "\n";
         cadena += "Nombre: " + this.getNombre() + "\n";
         cadena += "Descripción: " + this.getDecripcion() + "\n";
-        cadena += "Fecha ingreso: " + this.getFechaIngreso() + "\n";
+        cadena += "Fecha ingreso: " + fechaformato + "\n";
         cadena += "Estado: " + this.isEstado() + "\n\n";
 
         cadena += "Valores del Articulo\n";
@@ -271,7 +278,11 @@ public class Producto {
 
         cadena += "Propiedades\n";
         cadena += "Categoria: " + this.getCategoria() + "\n";
-        cadena += "Proveerdor: " + this.getProveedor() + "\n";
+        cadena += "Proveerdor: " + this.getProveedor() + "\n\n";
+
+        cadena += "NOTAS:\n";
+        cadena += mensajeCantMax() + mensajeCantMin() + "\n";
+
 
         return cadena;
     }

@@ -16,7 +16,7 @@ import java.util.Iterator;
 public class OrdenPedido {
 
     private ArrayList<Factura> listaFOP = new ArrayList<Factura>();
-   private String aprobacion = "";
+    private String aprobacion = "";
 
     public OrdenPedido() {
     }
@@ -45,6 +45,7 @@ public class OrdenPedido {
 
     public void agregarFactura(Factura f) {
         listaFOP.add(f);
+        
     }
 
     public String verFactura() {

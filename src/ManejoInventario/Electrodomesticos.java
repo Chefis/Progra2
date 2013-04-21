@@ -56,11 +56,11 @@ public class Electrodomesticos extends Categoria implements ITaxable {
     public String toString() {
         String cadena = "";
 
-        cadena += "Nombre: " + this.getNombre() + "\n";
-        cadena += "Descripción: " + this.getDescripcion() + "\n";
+        cadena += this.getNombre();
+      /*  cadena += "Descripción: " + this.getDescripcion() + "\n";
         cadena += "Estado: " + this.isEstado() + "\n";
         cadena += "Impuesto: " + implementarImpuesto() + "%";
-        cadena += "Descuento: " + implementarDescuento()+ "%";
+        cadena += "Descuento: " + implementarDescuento()+ "%";*/
 
         return cadena;
     }

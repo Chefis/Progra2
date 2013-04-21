@@ -13,12 +13,12 @@ import java.util.Iterator;
  * Descripción:
  * 
  */
-public class Ti extends Categoria implements IDescuento {
+public class TecnologiaInfo extends Categoria implements IDescuento {
 
-    public Ti() {
+    public TecnologiaInfo() {
     }
 
-    public Ti(String nombre, String descripcion, boolean estado) {
+    public TecnologiaInfo(String nombre, String descripcion, boolean estado) {
         super(nombre, descripcion, estado);
     }
 
@@ -35,7 +35,7 @@ public class Ti extends Categoria implements IDescuento {
         listaProducto.add(producto);
     }
 
-    public ArrayList<Producto> productoPorCategoria(Ti ti) {
+    public ArrayList<Producto> productoPorCategoria(TecnologiaInfo ti) {
         ArrayList<Producto> listaPorCategoria = new ArrayList<Producto>();
 
         Iterator<Producto> it = listaProducto.iterator();
