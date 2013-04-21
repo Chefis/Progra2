@@ -10,8 +10,8 @@ import java.util.Iterator;
  * Creado por: Oscar Mendoza López
  * Fecha: 
  * -------------------------------------------------- 
- * Modificado por: 
- * Fecha: 
+ * Modificado por: Jennifer Camacho Zamora
+ * Fecha: 21/04/2013
  * --------------------------------------------------- 
  * Descripción:
  * Para que el cliente se responsibilice de su pago sobre lo que me pidio.
@@ -150,10 +150,7 @@ public class OrdenCompra {
     public String imprimir() {
         String ret = "";
         double montofinal = 0.0;
-        double impuesto = 0.0;
-        double descuento = 0.0;
-
-
+        
         ret += "Detalle: " + getDetalle() + "\n"
                 + "Cliente: " + getCliente() + "\n"
                 + "________________________________________________________________________________________________\n"
@@ -164,15 +161,13 @@ public class OrdenCompra {
         while (it.hasNext()) {
             Item itemOrden = (Item) it.next();
 
-            impuesto += itemOrden.getProducto().obtenerImpuesto();
-            descuento += itemOrden.getProducto().obtenerDescuento();
-
 
             ret += itemOrden.getNumLinea() + "\t\t" + itemOrden.getCant() + "\t" + itemOrden.getProducto().getNombre() + "\t\t"
-                    + itemOrden.getProducto().getCostoVenta() + "\t\t" + impuesto + "\t\t" + descuento + "\t\t"
-                    + ((itemOrden.getSubtotal() + (itemOrden.getSubtotal() * impuesto / 100)) - (itemOrden.getSubtotal() * descuento / 100)) + "\n";
+                    + itemOrden.getProducto().getCostoVenta() + "\t\t" + itemOrden.getProducto().obtenerImpuesto()+ "\t\t" 
+                    + itemOrden.getProducto().obtenerDescuento()+ "\t\t"
+                    + itemOrden.getSubtotal() + "\n";
 
-            montofinal += (itemOrden.getSubtotal() + (itemOrden.getSubtotal() * 13 / 100));
+            montofinal += itemOrden.getSubtotal();
 
         }
 

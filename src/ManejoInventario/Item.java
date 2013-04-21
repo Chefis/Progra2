@@ -7,6 +7,9 @@ package ManejoInventario;
  * Modificado por: Oscar Mendoza López
  * Fecha: 
  * --------------------------------------------------- 
+ * Modificado por: Jennifer Camacho Zamora
+ * Fecha: 21/04/2013
+ * --------------------------------------------------- 
  * Descripción:
  * 
  */
@@ -66,7 +69,16 @@ public class Item {
     //Hace el calculo para sacar el subtotal
     public void calcularSubtotal() {
 
-        setSubtotal(getCant() * producto.getCostoVenta());
+        double descuento = 0.0;
+        double impuesto = 0.0;
+        double subtotal = 0.0;
+
+        subtotal = this.cant * producto.getCostoVenta();
+        impuesto = this.cant * producto.getCostoVenta() * producto.obtenerImpuesto() / 100;
+        descuento = this.cant * producto.getCostoVenta() * producto.obtenerDescuento() / 100;
+        
+        setSubtotal(subtotal + impuesto-descuento);
+
     } 
     
     @Override
