@@ -52,7 +52,7 @@ public class Bodega {
         this.ubicacion = ubicacion;
     }
 
-    public void agregarProducot(Producto p) {
+    public void agregarProducto(Producto p) {
         lP.add(p);
 
     }
@@ -67,6 +67,7 @@ public class Bodega {
         }
         return getNombre() + "Productos:\n" + listaP;
     }
+    
     
     @Override
     public String toString() {
