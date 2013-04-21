@@ -20,16 +20,17 @@ public class Item {
     private int cant;
     private double subtotal;
 
+    //Constructor
     public Item() {
     }
-
+    //Constructor Sobrecargado
     public Item(int numLinea, Producto producto, int cant) {
         this.numLinea = numLinea;
         this.producto = producto;
         this.cant = cant;
        
     }
-
+    
     public int getNumLinea() {
         return numLinea;
     }
@@ -62,12 +63,12 @@ public class Item {
         this.subtotal = total;
     }
 
-    
+    //Hace el calculo para sacar el subtotal
     public void calcularSubtotal() {
 
         setSubtotal(this.cant * producto.getCostoVenta());
     } 
- 
+    
     @Override
     public String toString() {
         return this.getNumLinea() + " " + this.getCant() + " " + this.getProducto() + " "

@@ -1,6 +1,7 @@
 package ManejoInventario;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 /*
@@ -15,27 +16,31 @@ import java.util.Iterator;
  */
 public class OrdenPedido {
 
-    private ArrayList<Factura> listaFOP = new ArrayList<Factura>();
     private String aprobacion = "";
+    private ArrayList<Item> listaItem = new ArrayList<Item>();
+    private Proveedor proveedor;
+    private long numero;
+    private Date fecha;
 
     public OrdenPedido() {
     }
 
-    public OrdenPedido(String aprobacion) {
-
-        this.aprobacion = aprobacion;
-
+    public OrdenPedido(Date fecha, long numero, ArrayList listaItem, Proveedor proveedor) {
+        this.proveedor = proveedor;
+        this.numero = numero;
+        this.listaItem = listaItem;
+        this.fecha = fecha;
     }
 
-    public ArrayList<Factura> getListaFOP() {
-        return listaFOP;
+    public ArrayList<Item> getListaItem() {
+        return listaItem;
     }
 
-    public void setListaFOP(ArrayList<Factura> listaFOP) {
-        this.listaFOP = listaFOP;
+    public void setListaItem(ArrayList<Item> listaItem) {
+        this.listaItem = listaItem;
     }
 
-    public String isAprobacion() {
+    public String getAprobacion() {
         return aprobacion;
     }
 
@@ -43,34 +48,90 @@ public class OrdenPedido {
         this.aprobacion = aprobacion;
     }
 
-    public void agregarFactura(Factura f) {
-        listaFOP.add(f);
-        
+    public Proveedor getProveedor() {
+        return proveedor;
+
     }
 
-    public String verFactura() {
-        String listaP = "";
-        int i = 0;
-        Iterator<Factura> it = listaFOP.iterator();
-        while (it.hasNext()) {
-            i++;
-            listaP += i + "." + it.next().toString() + "\n";
-        }
-        return "Factura(s): \n"
-                + listaP;
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
-    
-     public String validacion() {
+
+    public long getNumero() {
+        return numero;
+    }
+
+    public void setNumero(long numero) {
+        this.numero = numero;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+    //Valida si la orden esta Aprobada o rechazada
+    public String validacion() {
         if (aprobacion.equalsIgnoreCase("Aprobado")) {
             return "Orden Aprobada";
         } else {
             return "Orden Rechazada";
         }
     }
-     
-      @Override
+    //Muestra el contenido de una orden pedido
+
+    public String consulta() {
+        return this.toString();
+    }
+    //Asigna la cantidad que se va aumentar las existencias en stock de un producto
+    public int aumCant() {
+        int ingresoProducto = 0;
+        Iterator<Item> it = this.getListaItem().iterator();
+        while (it.hasNext()) {
+        Item itemOrden = (Item) it.next();
+        ingresoProducto += itemOrden.getCant();
+        
+        }
+        return ingresoProducto;
+    }
+    //Le da formato a la fecha
+    public String fechaformato(){
+    int anno = this.getFecha().getYear() + 1900;
+        int mes = this.getFecha().getMonth() + 1;
+        int dia = this.getFecha().getDay();
+        String fechaformato = dia + "/" + mes + "/" + anno;
+        
+    return fechaformato;
+    }
+
+    @Override
     public String toString() {
-        return verFactura() + "________________________________________________________________________________________________________________"
-                + "\n\n\t\t\t\t" + validacion();
+        Iterator<Item> it = this.getListaItem().iterator();
+        String cadena = "";
+        double montofinal = 0.0;
+
+
+        cadena += "Orden Pedido:\n"
+                + "Fecha: " + fechaformato()+ "\n"
+                + "Proveedor: " + getProveedor() + "\n"
+                + "Numero de orden: " + getNumero() + "\n"
+                + "____________________________________________________________\n"
+                + "No.Linea\tCant.\tDescripcion\tPrecio Unitario\tSubTotal\n"
+                + "------------------------------------------------------------\n";
+
+        while (it.hasNext()) {
+            Item itemOrden = (Item) it.next();
+
+            cadena += itemOrden.getNumLinea() + "\t\t" + itemOrden.getCant() + "\t" + itemOrden.getProducto().getNombre() + "\t\t"
+                    + itemOrden.getProducto().getCostoCompra() + "\t\t" + itemOrden.getSubtotal() + "\n";
+            montofinal += itemOrden.getSubtotal() + itemOrden.getSubtotal();
+        }
+        
+        cadena += "----------------------------------------------------------------------------------------------\n"
+                + "TOTAL DE LA ORDEN : " + montofinal;
+        
+        return cadena += "\t\t" + validacion();
     }
 }
