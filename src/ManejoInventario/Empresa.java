@@ -107,7 +107,15 @@ public class Empresa {
     }
      
      
-    @Override
+    public void listasVacias() throws ArreglosException{
+         if(this.listaClientes ==null && this.listaClientes.size() <=0){
+             throw new ArreglosException("lista de clientes vacias");
+         }else if (this.listaProv ==null && this.listaProv.size() <=0){
+             throw new ArreglosException("lista de distribuidores vacia");
+         }
+     }
+    
+     @Override
     public String toString() {
         return "Nombre Empresa: "+ this.getNombre() + "Dirección: " + this.getDireccion() + "\n";
     }

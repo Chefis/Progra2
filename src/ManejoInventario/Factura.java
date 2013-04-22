@@ -68,7 +68,7 @@ public class Factura {
         PrintWriter pw = null;
 
         try {
-            fichero = new FileWriter("F://Factura.TXT");
+            fichero = new FileWriter("C://Users/GreivinS/Desktop/Prueba1.TXT");
             pw = new PrintWriter(fichero);
             pw.println(this.toString());
         } catch (Exception e) {

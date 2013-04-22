@@ -140,7 +140,13 @@ public class OrdenPedido {
         }
     }
     
-    @Override
+     public void listaVacia() throws ArreglosException{
+         if(this.listaItem==null&& this.listaItem.size()<=0){
+             throw new ArreglosException("lista de facturacion orden pedido vacia");
+         }
+     }
+     
+     @Override
     public String toString() {
         Iterator<Item> it = this.getListaItem().iterator();
         String cadena = "";

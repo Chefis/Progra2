@@ -1,8 +1,8 @@
 package ManejoInventario;
 
 /*
- * Creado por: 
- * Fecha: 
+ * Creado por: Daniela Bolivar Villegas
+ * Fecha: 15/04/2013
  * -------------------------------------------------- 
  * Modificado por: Jennier Camacho
  * Fecha: 19/04/2013

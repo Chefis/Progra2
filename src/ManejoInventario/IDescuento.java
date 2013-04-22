@@ -2,11 +2,11 @@
 package ManejoInventario;
 
 /*
- * Creado por: 
- * Fecha: 
+ * Creado por: Daniela Bolivar Villegas
+ * Fecha: 17/04/2013
  * -------------------------------------------------- 
  * Modificado por: Jennifer Camacho
- * Fecha: 
+ * Fecha: 19/04/2013
  * --------------------------------------------------- 
  * Descripción:
  * 

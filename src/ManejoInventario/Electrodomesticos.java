@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /*
- * Creado por: 
- * Fecha: 
+ * Creado por: Daniela Bolivar Villegas
+ * Fecha: 15/04/2013
  * -------------------------------------------------- 
  * Modificado por: Jennifer Camacho 
  * Fecha: 19/4/2013
@@ -25,38 +25,45 @@ public class Electrodomesticos extends Categoria implements ITaxable {
     public double implementarImpuesto() {
         return 10.0;
     }
-    
+
     public double implementarDescuento() {
         return 5.0;
     }
-    
-    public void agregarProducto(Producto producto) {
-        listaProducto.add(producto);
-    }
-    
-    public ArrayList<Producto> productoPorCategoria(Electrodomesticos electrodomesticos) {
+
+    /*   public void agregarProducto(Producto producto) {
+     listaProducto.add(producto);
+     }
+    public ArrayList<Producto> productoPorCategoria(Producto producto) {
         ArrayList<Producto> listaPorCategoria = new ArrayList<Producto>();
-        
+
+        listaProducto.add(producto);
+
         Iterator<Producto> it = listaProducto.iterator();
         while (it.hasNext()) {
-            Producto producto = it.next();
+            producto = it.next();
             if (producto.getCategoria().equals(electrodomesticos)) {
-                    listaPorCategoria.add(producto);
-                }
+                listaPorCategoria.add(producto);
             }
-        
+        }
+
         return listaPorCategoria;
+    }*/
+
+    public void errorI() throws ErrorImpuesto {
+        if (this.implementarImpuesto() >= 5.0) {
+            throw new ErrorImpuesto("El impuesto se redujo. Verifique");
+        }
     }
-    
+
     @Override
     public String toString() {
         String cadena = "";
 
         cadena += this.getNombre();
-      /*  cadena += "Descripción: " + this.getDescripcion() + "\n";
-        cadena += "Estado: " + this.isEstado() + "\n";
-        cadena += "Impuesto: " + implementarImpuesto() + "%";
-        cadena += "Descuento: " + implementarDescuento()+ "%";*/
+        /*  cadena += "Descripción: " + this.getDescripcion() + "\n";
+         cadena += "Estado: " + this.isEstado() + "\n";
+         cadena += "Impuesto: " + implementarImpuesto() + "%";
+         cadena += "Descuento: " + implementarDescuento()+ "%";*/
 
         return cadena;
     }

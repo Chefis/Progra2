@@ -90,9 +90,11 @@ public class Proveedor {
         return getEmpresa() + "Productos:\n" + listaP;
     }
     
-    
-    
-    
+    public void listaVacia() throws ArreglosException{
+        if (this.lDP==null && this.lDP.size()<=0){
+            throw new ArreglosException("lista vacia");
+        }
+    }
     
    @Override
     public String toString() {
