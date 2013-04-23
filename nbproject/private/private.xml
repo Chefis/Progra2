@@ -2,23 +2,4 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/Bodega.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/Categoria.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/Cliente.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/ClienteFisico.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/ClienteJuridico.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/Electrodomesticos.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/Empresa.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/Factura.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/IDescuento.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/ITaxable.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/Item.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/MueblesOficina.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/OrdenCompra.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/OrdenPedido.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/Producto.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/Tester.java</file>
-        <file>file:/C:/Users/Marce/Documents/GitHub/Progra2/src/ManejoInventario/Proveedor.java</file>
-    </open-files>
 </project-private>

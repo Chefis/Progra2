@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /*
- * Creado por: 
- * Fecha: 
+ * Creado por: Marcela Leandro
+ * Fecha: 15/04/2013
  * -------------------------------------------------- 
  * Modificado por: Jennifer Camacho
  * Fecha: 
@@ -21,7 +21,7 @@ public class MueblesOficina extends Categoria implements IDescuento {
         super(nombre, descripcion, estado);
     }
 
-    public void agregarProducto(Producto producto) {
+ /*   public void agregarProducto(Producto producto) {
         listaProducto.add(producto);
     }
 
@@ -37,7 +37,7 @@ public class MueblesOficina extends Categoria implements IDescuento {
         }
 
         return listaPorCategoria;
-    }
+    }*/
 
     @Override
     public double implementarDescuento() {
@@ -51,6 +51,18 @@ public class MueblesOficina extends Categoria implements IDescuento {
 
     }
 
+   public void errorI() throws ErrorImpuesto{
+        if (this.implementarImpuesto()>= 20.0){
+            throw new ErrorImpuesto("el impuesto se aumento . verifique");
+        }
+    }
+    
+    public void errorD() throws ErrorDescuento{
+         if (this.implementarImpuesto()<= 50.0){
+            throw new ErrorDescuento("el descuentose redujo . verifique");
+        }
+    }
+    
     @Override
     public String toString() {
         String cadena = "";

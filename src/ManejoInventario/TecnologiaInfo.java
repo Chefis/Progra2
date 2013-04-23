@@ -31,7 +31,7 @@ public class TecnologiaInfo extends Categoria implements IDescuento {
         return 13.0;
     }
 
-    public void agregarProducto(Producto producto) {
+   /* public void agregarProducto(Producto producto) {
         listaProducto.add(producto);
     }
 
@@ -46,8 +46,20 @@ public class TecnologiaInfo extends Categoria implements IDescuento {
             }
         }
         return listaPorCategoria;
-    }
+    }*/
 
+     public void errorI() throws ErrorImpuesto{
+        if (this.implementarImpuesto()>= 13.0){
+            throw new ErrorImpuesto("El impuesto se redujo. Verifique");
+        }
+    }
+     
+     public void errorD() throws ErrorDescuento{
+         if (this.implementarImpuesto()<= 30.0){
+            throw new ErrorDescuento("El descuento se redujo. Verifique");
+        }
+    }
+    
     @Override
     public String toString() {
         String cadena = "";

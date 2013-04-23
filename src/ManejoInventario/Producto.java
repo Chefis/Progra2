@@ -37,6 +37,16 @@ public class Producto {
     public Producto() {
     }
 
+    public Producto(String codigo, String nombre, String decripcion, Date fechaIngreso, boolean estado) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.decripcion = decripcion;
+        this.fechaIngreso = fechaIngreso;
+        this.estado = estado;
+    }
+
+    
+    
     public Producto(String codigo, String nombre, String decripcion, int cantInicial, int cantMin, int cantMax, int existencias, double costoCompra, double costoVenta, Proveedor proveedor, Categoria categoria, boolean estado, Date fechaIngreso) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -234,7 +244,7 @@ public class Producto {
         PrintWriter pw = null;
 
         try {
-            fichero = new FileWriter("F://Prueba.TXT");
+            fichero = new FileWriter("C://Users/GreivinS/Desktop/Prueba.TXT");
             pw = new PrintWriter(fichero);
             pw.println(this.toString());
         } catch (Exception e) {
@@ -247,6 +257,21 @@ public class Producto {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
+        }
+    }
+
+    public void noPertenece(Categoria Electrodomesticos, Categoria MueblesOficina, Categoria TecnologiaInfo) throws NoCategoria {
+
+        if (this.categoria != Electrodomesticos) {
+        } else if (this.categoria != MueblesOficina) {
+        } else if (this.categoria != TecnologiaInfo) {
+        }
+        throw new NoCategoria("producto no pertenece a ninguna categoria");
+    }
+
+    public void ProductosAgotados() throws AgotadosException {
+        if (this.cantMin == 0 && this.existencias == 0) {
+            throw new AgotadosException("es necesario localizar al provedor");
         }
     }
 

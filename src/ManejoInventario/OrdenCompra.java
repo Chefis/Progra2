@@ -131,7 +131,7 @@ public class OrdenCompra {
         PrintWriter pw = null;
 
         try {
-            fichero = new FileWriter("F://Orden Compra.TXT");
+            fichero = new FileWriter("C://Users/GreivinS/Desktop/Prueba2.TXT");
             pw = new PrintWriter(fichero);
             pw.println(this.toString());
         } catch (Exception e) {
@@ -177,6 +177,18 @@ public class OrdenCompra {
         return ret;
     }
 
+    public void listaVacia() throws ArreglosException {
+        if (this.item == null && this.item.size() <= 0) {
+            throw new ArreglosException("listaFOC vacia");
+        }
+    }
+
+    public void listaMenorUno() throws NumberFormatException {
+        if (this.getNumero() <= 0) {
+            throw new NumberFormatException("Esta orden es imposible no puede ser archivada");
+        } 
+     }
+    
     @Override
     public String toString() {
         String cadena = "";

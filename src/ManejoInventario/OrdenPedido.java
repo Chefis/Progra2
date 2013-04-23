@@ -124,7 +124,7 @@ public class OrdenPedido {
         PrintWriter pw = null;
 
         try {
-            fichero = new FileWriter("F://Orden Pedido.TXT");
+            fichero = new FileWriter("C:\\Users\\Oscar\\Desktop\\Orden Pedido.TXT");
             pw = new PrintWriter(fichero);
             pw.println(this.toString());
         } catch (Exception e) {
@@ -140,7 +140,13 @@ public class OrdenPedido {
         }
     }
     
-    @Override
+     public void listaVacia() throws ArreglosException{
+         if(this.listaItem==null&& this.listaItem.size()<=0){
+             throw new ArreglosException("lista de facturacion orden pedido vacia");
+         }
+     }
+     
+     @Override
     public String toString() {
         Iterator<Item> it = this.getListaItem().iterator();
         String cadena = "";
