@@ -1,13 +1,13 @@
 package ManejoInventario;
 
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Bolivar
+ * Creado por: Daniela Bolivar Villegas
+ * Fecha: 21/04/2013
+ * -------------------------------------------------- 
+ * Modificado por: 
+ * Fecha: 
+ * --------------------------------------------------- 
+ * Descripción: 
  */
 public class ErrorDescuento extends Exception{
 

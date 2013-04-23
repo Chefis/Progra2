@@ -13,6 +13,9 @@ import java.util.Iterator;
  * Modificado por: Jennifer Camacho Zamora
  * Fecha: 21/04/2013
  * --------------------------------------------------- 
+ * Modificado por: Daniela Bolivar Villegas (exception)
+ * Fecha: 21/4/2013
+ * --------------------------------------------------- 
  * Descripción:
  * Para que el cliente se responsibilice de su pago sobre lo que me pidio.
  * Mando una copia a bodega para que me aparte y de el producto que solicito
@@ -179,13 +182,13 @@ public class OrdenCompra {
 
     public void listaVacia() throws ArreglosException {
         if (this.item == null && this.item.size() <= 0) {
-            throw new ArreglosException("listaFOC vacia");
+            throw new ArreglosException("ListaFOC vacia");
         }
     }
 
     public void listaMenorUno() throws NumberFormatException {
         if (this.getNumero() <= 0) {
-            throw new NumberFormatException("Esta orden es imposible no puede ser archivada");
+            throw new NumberFormatException("Esta orden es imposible, no puede ser archivada");
         } 
      }
     

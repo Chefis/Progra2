@@ -18,8 +18,7 @@ public class Bodega {
     private String nombre = "";
     private String ubicacion = "";
     private ArrayList<Producto> lP = new ArrayList<Producto>();
-    
-    
+
     public Bodega() {
     }
 
@@ -27,7 +26,7 @@ public class Bodega {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
     }
-    
+
     public ArrayList<Producto> getlP() {
         return lP;
     }
@@ -52,7 +51,8 @@ public class Bodega {
         this.ubicacion = ubicacion;
     }
 
-    public void agregarProducot(Producto p) {
+//Agrega productos a la lista verificando primero si su estado es activo o inactivo
+    public void agregarProductos(Producto p) {
         if (p.isEstado()) {
             lP.add(p);
         }
@@ -69,10 +69,9 @@ public class Bodega {
         }
         return getNombre() + "Productos:\n" + listaP;
     }
-    
-    
+
     @Override
     public String toString() {
-        return getNombre() +" "+ getUbicacion();
+        return getNombre() + " " + getUbicacion();
     }
 }

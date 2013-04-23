@@ -7,8 +7,11 @@ import java.util.Iterator;
  * Creado por: Marcela Leandro
  * Fecha: 15/04/2013
  * -------------------------------------------------- 
- * Modificado por: Jennifer Camacho
- * Fecha: 
+ * Modificado por: Jennifer Camacho 
+ * Fecha: 19/4/2013
+ * --------------------------------------------------- 
+ * Modificado por: Daniela Bolivar Villegas (exception)
+ * Fecha: 21/4/2013
  * --------------------------------------------------- 
  * Descripción: 
  */
@@ -20,7 +23,7 @@ public class MueblesOficina extends Categoria implements IDescuento {
     public MueblesOficina(String nombre, String descripcion, boolean estado) {
         super(nombre, descripcion, estado);
     }
-
+    //Este metodo se encuentra fuera de uso debido a que tiene un error en el main y no llena la lista como es debido
  /*   public void agregarProducto(Producto producto) {
         listaProducto.add(producto);
     }
@@ -47,19 +50,19 @@ public class MueblesOficina extends Categoria implements IDescuento {
 
     public double implementarImpuesto() {
 
-        return 20.0;
+        return 10.0;
 
     }
 
    public void errorI() throws ErrorImpuesto{
-        if (this.implementarImpuesto()>= 20.0){
-            throw new ErrorImpuesto("el impuesto se aumento . verifique");
+        if (this.implementarImpuesto()> 10.0){
+            throw new ErrorImpuesto("El impuesto se aumento . Verifique");
         }
     }
     
     public void errorD() throws ErrorDescuento{
-         if (this.implementarImpuesto()<= 50.0){
-            throw new ErrorDescuento("el descuentose redujo . verifique");
+         if (this.implementarDescuento()> 50.0){
+            throw new ErrorDescuento("El descuento se redujo . Verifique");
         }
     }
     

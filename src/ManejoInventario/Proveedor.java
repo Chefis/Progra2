@@ -12,6 +12,9 @@ import java.util.Iterator;
  * Modificado por: Marcela Leandro
  * Fecha: 
  * --------------------------------------------------- 
+ * Modificado por: Daniela Bolivar Villegas (exception)
+ * Fecha: 21/4/2013
+ * --------------------------------------------------- 
  * Descripción:
  *  
  */
@@ -92,7 +95,7 @@ public class Proveedor {
     
     public void listaVacia() throws ArreglosException{
         if (this.lDP==null && this.lDP.size()<=0){
-            throw new ArreglosException("lista vacia");
+            throw new ArreglosException("Lista vacia");
         }
     }
 

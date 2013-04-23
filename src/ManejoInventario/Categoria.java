@@ -6,8 +6,8 @@ import java.util.ArrayList;
  * Creado por: Jennifer Camacho
  * Fecha: 14/abril/2013
  * -------------------------------------------------- 
- * Modificado por: 
- * Fecha: 
+ * Modificado por: Daniela Bolivar (exception)
+ * Fecha: 21/04/2013
  * --------------------------------------------------- 
  * Descripción:
  * 
@@ -51,13 +51,19 @@ public abstract class Categoria {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-
+//Crea una lista en la que se colocaran los productos existentes, no se encuentra funcionando
     public ArrayList<Producto> getListaProducto() {
         return listaProducto;
     }
 
     public void setListaProducto(ArrayList<Producto> listaProducto) {
         this.listaProducto = listaProducto;
+    }
+    
+    public void listaVacia() throws ArreglosException {
+        if (this.listaProducto == null && this.listaProducto.size() <= 0) {
+            throw new ArreglosException("lista Productos vacia");
+        }
     }
     
 }
