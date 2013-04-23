@@ -33,13 +33,14 @@ public class Tester {
      System.out.println("Lista de Clientes: "+emp.ImprimirCliente());
      System.out.println("Lista de Proveedores: "+emp.ImprimirProveedor());
 
-        OrdenCompra ord = new OrdenCompra(1,new Date("21/04/2013"), cliente2, "Estafada", "Aprobado");
+        OrdenCompra ord = new OrdenCompra(1,new Date("21/04/2013"), cliente2, "Estafada", "Rechazado");
         Item item1 = new Item(1, producto, 5);
         Item item2 = new Item(2, producto2, 2);
         
         ord.agregarItem(item1);
         ord.agregarItem(item2);
         
+        Factura fact = new Factura(1, new Date("21/04/2012"));
 
 //        System.out.println(producto.consultarProducto());
 //     //   System.out.println(electrodomesticos.productoPorCategoria(electrodomesticos)); no funciona bien
