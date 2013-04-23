@@ -7,9 +7,8 @@ package ManejoInventario;
  * Modificado por: Jennifer Camacho
  * Fecha: 19/04/2013
  * --------------------------------------------------- 
- * 
+ * Clase abstracta, se utiliza para heredar a los distintos tipos de cliente
  */
-
 
 public abstract class Cliente {
     

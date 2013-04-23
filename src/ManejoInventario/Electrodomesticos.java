@@ -10,6 +10,9 @@ import java.util.Iterator;
  * Modificado por: Jennifer Camacho 
  * Fecha: 19/4/2013
  * --------------------------------------------------- 
+ * Modificado por: Daniela Bolivar Villegas (exception)
+ * Fecha: 21/4/2013
+ * --------------------------------------------------- 
  * Descripción: 
  */
 public class Electrodomesticos extends Categoria implements ITaxable {
@@ -29,7 +32,7 @@ public class Electrodomesticos extends Categoria implements ITaxable {
     public double implementarDescuento() {
         return 5.0;
     }
-
+//Este metodo se encuentra fuera de uso debido a que tiene un error en el main y no llena la lista como es debido
     /*   public void agregarProducto(Producto producto) {
      listaProducto.add(producto);
      }
@@ -50,8 +53,8 @@ public class Electrodomesticos extends Categoria implements ITaxable {
     }*/
 
     public void errorI() throws ErrorImpuesto {
-        if (this.implementarImpuesto() >= 5.0) {
-            throw new ErrorImpuesto("El impuesto se redujo. Verifique");
+        if (this.implementarImpuesto() > 10.0) {
+            throw new ErrorImpuesto("El impuesto se aumento. Verifique");
         }
     }
 

@@ -2,7 +2,6 @@ package ManejoInventario;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Date;
 
 /*

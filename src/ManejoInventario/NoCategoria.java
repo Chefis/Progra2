@@ -1,12 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ManejoInventario;
 
-/**
- *
- * @author Bolivar
+/*
+ * Creado por: Daniela Bolivar
+ * Fecha: 21/04/2013
+ * -------------------------------------------------- 
+ * Modificado por: 
+ * Fecha: 
+ * --------------------------------------------------- 
+ * Descripción:
+ * 
  */
 public class NoCategoria extends Exception{
 

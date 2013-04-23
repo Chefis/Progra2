@@ -7,7 +7,7 @@ package ManejoInventario;
  * Fecha: 
  * --------------------------------------------------- 
  * Descripción:
- * Agregue toString
+ * 
  */
 public class ClienteFisico extends Cliente {
 

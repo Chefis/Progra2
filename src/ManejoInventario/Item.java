@@ -66,7 +66,7 @@ public class Item {
         this.subtotal = subtotal;
     }
 
-    //Hace el calculo para sacar el subtotal
+    //Hace el calculo para sacar el subtotal incluyendo impuestos y descuentos
     public void calcularSubtotal() {
 
         double descuento = 0.0;

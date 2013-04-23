@@ -11,6 +11,9 @@ import java.util.Date;
  * Modificado por: Jennifer Camacho
  * Fecha: 14/abril/2013
  * --------------------------------------------------- 
+ * Modificado por: Daniela Bolivar Villegas (exception)
+ * Fecha: 21/4/2013
+ * --------------------------------------------------- 
  * Descripción:
  * Colocar el producto dentro de una categoria. 
  * Obtener el impuesto y el descuento por medio de la categoria. 
@@ -114,7 +117,7 @@ public class Producto {
     public int getExistencias() {
         return existencias;
     }
-
+//Este metodo se altero para que se inicialicen las existencias en la cantidad inicial dada
     public void setExsitencias(int existencias) {
         this.existencias = cantInicial;
     }
@@ -166,7 +169,7 @@ public class Producto {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-
+//Por medio de una comparacion obtiene los impuestos adquiridos por categoria
     public double obtenerImpuesto() {
 
         if (getCategoria() instanceof Electrodomesticos) {
@@ -177,7 +180,7 @@ public class Producto {
             return ((TecnologiaInfo) getCategoria()).implementarImpuesto();
         }
     }
-
+//Por medio de una comparacion obtiene el descuento adquirido por categoria
     public double obtenerDescuento() {
 
         if (getCategoria() instanceof Electrodomesticos) {
@@ -189,12 +192,11 @@ public class Producto {
         }
 
     }
-
+//Agrega producto a la lista de existencias
     public void agregarProducto(int ingresoProducto) {
-
-        this.existencias += ingresoProducto;
+       this.existencias += ingresoProducto;
     }
-
+//Retira producto de la lista de existencias
     public void sacarProducto(int productoVendido) {
 
         if (productoVendido <= this.existencias) {
@@ -203,12 +205,12 @@ public class Producto {
             System.out.println("No se puede realizar la compra.");
         }
     }
-
+//Presenta una consulta de los atributos del producto
     public String consultarProducto() {
 
         return this.toString();
     }
-
+//Envia un mensaje para la cantidad minima de existencias
     public String mensajeCantMin() {
 
         String mensaje = "";
@@ -223,7 +225,7 @@ public class Producto {
         }
         return mensaje;
     }
-
+//Envia un mensaje para la cantidad maxima de existencias
     public String mensajeCantMax() {
 
         String mensaje = "";
@@ -238,7 +240,7 @@ public class Producto {
         }
         return mensaje;
     }
-
+//Exporta el producto a un txt
     public void exportarProducto() {
         FileWriter fichero = null;
         PrintWriter pw = null;
@@ -259,19 +261,19 @@ public class Producto {
             }
         }
     }
-
+//Exception para capturar si la categoria es null
     public void noPertenece(Categoria Electrodomesticos, Categoria MueblesOficina, Categoria TecnologiaInfo) throws NoCategoria {
 
         if (this.categoria != Electrodomesticos) {
         } else if (this.categoria != MueblesOficina) {
         } else if (this.categoria != TecnologiaInfo) {
         }
-        throw new NoCategoria("producto no pertenece a ninguna categoria");
+        throw new NoCategoria("Producto no pertenece a ninguna categoria");
     }
-
+//Exception para el caso de producto agotado
     public void ProductosAgotados() throws AgotadosException {
         if (this.cantMin == 0 && this.existencias == 0) {
-            throw new AgotadosException("es necesario localizar al provedor");
+            throw new AgotadosException("Es necesario localizar al provedor");
         }
     }
 

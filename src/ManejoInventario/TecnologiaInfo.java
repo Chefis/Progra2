@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /*
- * Creado por: 
+ * Creado por: Daniela Bolivar
  * Fecha: 
  * -------------------------------------------------- 
  * Modificado por: Jennifer Camacho
  * Fecha: 19/04/2013
+ * --------------------------------------------------- 
+ * Modificado por: Daniela Bolivar Villegas (exception)
+ * Fecha: 21/4/2013
  * --------------------------------------------------- 
  * Descripción:
  * 
@@ -24,13 +27,13 @@ public class TecnologiaInfo extends Categoria implements IDescuento {
 
     @Override
     public double implementarDescuento() {
-        return 30.0;
+        return 5.0;
     }
 
     public double implementarImpuesto() {
-        return 13.0;
+        return 10.0;
     }
-
+//Este metodo se encuentra fuera de uso debido a que tiene un error en el main y no llena la lista como es debido
    /* public void agregarProducto(Producto producto) {
         listaProducto.add(producto);
     }
@@ -48,15 +51,15 @@ public class TecnologiaInfo extends Categoria implements IDescuento {
         return listaPorCategoria;
     }*/
 
-     public void errorI() throws ErrorImpuesto{
-        if (this.implementarImpuesto()>= 13.0){
+    public void errorI() throws ErrorImpuesto{
+        if (this.implementarImpuesto()< 10.0){
             throw new ErrorImpuesto("El impuesto se redujo. Verifique");
         }
     }
      
      public void errorD() throws ErrorDescuento{
-         if (this.implementarImpuesto()<= 30.0){
-            throw new ErrorDescuento("El descuento se redujo. Verifique");
+         if (this.implementarDescuento()> 5.0){
+            throw new ErrorDescuento("El descuento se aumento. Verifique");
         }
     }
     

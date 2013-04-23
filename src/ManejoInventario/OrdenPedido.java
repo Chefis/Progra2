@@ -142,7 +142,7 @@ public class OrdenPedido {
     
      public void listaVacia() throws ArreglosException{
          if(this.listaItem==null&& this.listaItem.size()<=0){
-             throw new ArreglosException("lista de facturacion orden pedido vacia");
+             throw new ArreglosException("Lista de facturacion orden pedido vacia");
          }
      }
      
