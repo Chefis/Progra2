@@ -37,6 +37,16 @@ public class Producto {
     public Producto() {
     }
 
+    public Producto(String codigo, String nombre, String decripcion, Date fechaIngreso, boolean estado) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.decripcion = decripcion;
+        this.fechaIngreso = fechaIngreso;
+        this.estado = estado;
+    }
+
+    
+    
     public Producto(String codigo, String nombre, String decripcion, int cantInicial, int cantMin, int cantMax, int existencias, double costoCompra, double costoVenta, Proveedor proveedor, Categoria categoria, boolean estado, Date fechaIngreso) {
         this.codigo = codigo;
         this.nombre = nombre;

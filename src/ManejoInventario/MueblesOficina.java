@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /*
- * Creado por: Daniela Bolivar Villegas
+ * Creado por: Marcela Leandro
  * Fecha: 15/04/2013
  * -------------------------------------------------- 
  * Modificado por: Jennifer Camacho

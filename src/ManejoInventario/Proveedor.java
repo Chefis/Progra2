@@ -74,20 +74,20 @@ public class Proveedor {
         this.telefono = telefono;
     }
 
-     public void agregarProducto(Producto pp) {
-        lDP.add(pp);
+     public void agregarProducto(Producto p) {
+        lDP.add(p);
 
     }
 
-    public String verProductos() {
-        String listaP = "";
-        int cont = 0;
+     public String ImprimirProductos() {
+        
+         String listaP = "";
+
         Iterator<Producto> it = lDP.iterator();
         while (it.hasNext()) {
-            cont++;
-            listaP += cont + "." + it.next().toString() + "\n";
+            listaP += it.next().toString() + "\n";
         }
-        return getEmpresa() + "Productos:\n" + listaP;
+        return "\nProductos: " + listaP;
     }
     
     public void listaVacia() throws ArreglosException{
@@ -95,17 +95,25 @@ public class Proveedor {
             throw new ArreglosException("lista vacia");
         }
     }
-    
-   @Override
-    public String toString() {
+
+   
         
+        @Override
+    public String toString(){
+       
+            
         int anno = this.getFechaEntrega().getYear() + 1900;
         int mes = this.getFechaEntrega().getMonth() + 1;
         int dia = this.getFechaEntrega().getDay();
         String fecha = dia + "/" + mes + "/" + anno;
+        
+        return "Empresa:" + this.getEmpresa() + "\ntelefono:" + this.getTelefono() + ", fechaEntrega:" +fecha;
+    }
+
     
-        return "Nombre de la Empresa: " + this.getEmpresa() + "\nTeléfono: " + this.getTelefono() 
-                + "\nFecha de entrega: " + fecha + "\n\n";
-}
+    
+    
+    
+    
    
 }

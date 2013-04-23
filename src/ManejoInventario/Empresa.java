@@ -8,7 +8,7 @@ import java.util.Iterator;
  * Creado por: Marcela Leandro
  * Fecha: 15/04/2013
  * -------------------------------------------------- 
- * Modificado por: 
+ * Modificado por: Marcela Leandro
  * Fecha: 
  * --------------------------------------------------- 
  * Descripción:
@@ -106,7 +106,7 @@ public class Empresa {
         return "\n" + listaC;
     }
      
-     
+         
     public void listasVacias() throws ArreglosException{
          if(this.listaClientes ==null && this.listaClientes.size() <=0){
              throw new ArreglosException("lista de clientes vacias");
@@ -117,8 +117,10 @@ public class Empresa {
     
      @Override
     public String toString() {
-        return "Nombre Empresa: "+ this.getNombre() + "Dirección: " + this.getDireccion() + "\n";
-    }
+       
+      return "Nombre Empresa: "+ this.getNombre() + "\nDirección: " + this.getDireccion() + "\n";
+    
+     }
 
      
      
